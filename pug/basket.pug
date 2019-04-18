@@ -1,0 +1,72 @@
+doctype html
+html
+
+	head
+		meta(charset='utf-8')
+		title
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+		link(rel='shortcut icon', href='img/favicon.ico', type='image/x-icon')
+		link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900")
+		link(rel='stylesheet', href='css/style.css')
+		style.
+			*,
+			*::after,
+			*::before {
+				//- outline: 1px solid rgba(255,0,0,.5) !important
+			}
+		script(src="https://ctr-localhost.ru/vlad/jq.js")
+
+	body
+		.w-page
+			.main
+				.container
+					.main__inner
+						.main__sidebar
+						.main__content
+							.basket
+								.basket__step.basket__step--delivery
+									p.basket__step-title Регион доставки
+										button.basket__edit Изменить
+									.basket__step-body
+										.basket__group
+											p.basket__group-label Тип плательщика
+											.basket__group-radio
+												input(type="radio", name="role", value="1", checked)
+												| Физическое лицо
+											.basket__group-radio
+												input(type="radio", name="role", value="2")
+												| Юридическое лицо
+										.basket__group
+											p.basket__group-label Местопложение
+											p.basket__group-helper Местоположение определено автоматически. Если не верно, введите название своего города.
+											input(type="text", name="location").basket__group-field
+										button.basket__next Далее
+								.basket__step.basket__step--contacts
+									p.basket__step-title Данные покупателя
+										button.basket__edit Изменить
+									.basket__step-body
+										.basket__group
+											p.basket__group-label #[strong *] ФИО
+											input(type="text", name="fio").basket__group-field
+										.basket__group
+											p.basket__group-label #[strong *] E-mail
+											input(type="email", name="mail").basket__group-field
+										.basket__group
+											p.basket__group-label #[strong *] Телефон
+											input(type="tel", name="phone").basket__group-field
+										.basket__group
+											p.basket__group-label Комментарии к доставке
+											textarea(rows=3, name="comments").basket__group-field
+										button.basket__next Далее
+								.basket__step.basket__step--basket
+									p.basket__step-title Товары в заказе
+									.basket__step-body
+										.basket__list
+										p.basket__total Всего на сумму: #[strong #[span.js-basketTotal 0 ] руб.]
+										button.basket__ok Оформить заказ
+
+		
+
+		script(src="js/basket.js")
+		script(src="js/js.cookie.js")

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      *,
+      *::after,
+      *::before {
+      	//- outline: 1px solid rgba(255,0,0,.5) !important
+      }
+    </style>
+    <script src="https://ctr-localhost.ru/vlad/jq.js"></script>
+  </head>
+  <body>
+    <div class="w-page">
+      <div class="main">
+        <div class="container">
+          <div class="main__inner">
+            <div class="main__sidebar"></div>
+            <div class="main__content">
+              <div class="basket">
+                <div class="basket__step basket__step--delivery">
+                  <p class="basket__step-title">Регион доставки
+                    <button class="basket__edit">Изменить</button>
+                  </p>
+                  <div class="basket__step-body">
+                    <div class="basket__group">
+                      <p class="basket__group-label">Тип плательщика</p>
+                      <div class="basket__group-radio">
+                        <input type="radio" name="role" value="1" checked>Физическое лицо
+                      </div>
+                      <div class="basket__group-radio">
+                        <input type="radio" name="role" value="2">Юридическое лицо
+                      </div>
+                    </div>
+                    <div class="basket__group">
+                      <p class="basket__group-label">Местопложение</p>
+                      <p class="basket__group-helper">Местоположение определено автоматически. Если не верно, введите название своего города.</p>
+                      <input class="basket__group-field" type="text" name="location">
+                    </div>
+                    <button class="basket__next">Далее</button>
+                  </div>
+                </div>
+                <div class="basket__step basket__step--contacts">
+                  <p class="basket__step-title">Данные покупателя
+                    <button class="basket__edit">Изменить</button>
+                  </p>
+                  <div class="basket__step-body">
+                    <div class="basket__group">
+                      <p class="basket__group-label"><strong>*</strong> ФИО</p>
+                      <input class="basket__group-field" type="text" name="fio">
+                    </div>
+                    <div class="basket__group">
+                      <p class="basket__group-label"><strong>*</strong> E-mail</p>
+                      <input class="basket__group-field" type="email" name="mail">
+                    </div>
+                    <div class="basket__group">
+                      <p class="basket__group-label"><strong>*</strong> Телефон</p>
+                      <input class="basket__group-field" type="tel" name="phone">
+                    </div>
+                    <div class="basket__group">
+                      <p class="basket__group-label">Комментарии к доставке</p>
+                      <textarea class="basket__group-field" rows="3" name="comments"></textarea>
+                    </div>
+                    <button class="basket__next">Далее</button>
+                  </div>
+                </div>
+                <div class="basket__step basket__step--basket">
+                  <p class="basket__step-title">Товары в заказе</p>
+                  <div class="basket__step-body">
+                    <div class="basket__list"></div>
+                    <p class="basket__total">Всего на сумму: <strong><span class="js-basketTotal">0 </span> руб.</strong></p>
+                    <button class="basket__ok">Оформить заказ</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/basket.js"></script>
+    <script src="js/js.cookie.js"></script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+doctype html
+html
+
+	head
+		meta(charset='utf-8')
+		title
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+		link(rel='shortcut icon', href='img/favicon.ico', type='image/x-icon')
+		link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900")
+		link(rel='stylesheet', href='css/style.css')
+		style.
+			*,
+			*::after,
+			*::before {
+				//- outline: 1px solid rgba(255,0,0,.5) !important
+			}
+		script(src="https://ctr-localhost.ru/vlad/jq.js")
+
+	body
+		.w-page
+			.main
+				.container
+					.main__inner
+						.main__sidebar
+						.main__content
+							button.js-clear очистить
+							.case
+								.case__list
+									.case__item.product(data-id="6541561")
+										a(href="basket.html", title="Просмотреть корзину").product__check В корзине
+										button.product__delete(title="Удалить из корзины")
+										img.product__pic(src="img/pic-1.jpg", alt="")
+										p.product__name Каркас Ti любой протяжённости
+										p.product__cost
+											span.product__cost-type По STL файлу
+											strong.product__cost-price 600 руб.
+											button.product__cost-btn Заказать
+										p.product__cost
+											span.product__cost-type С уровня модели
+											strong.product__cost-price 9000 руб.
+											button.product__cost-btn Заказать
+
+
+
+									.case__item.product(data-id="3516561")
+										a(href="basket.html", title="Просмотреть корзину").product__check В корзине
+										button.product__delete(title="Удалить из корзины")
+										img.product__pic(src="img/pic-2.jpg", alt="")
+										p.product__name Каркас Ti анатомической формы протяженностью до 6 единиц
+										p.product__cost
+											span.product__cost-type По STL файлу
+											strong.product__cost-price 600 руб.
+											button.product__cost-btn Заказать
+										p.product__cost
+											span.product__cost-type С уровня модели
+											strong.product__cost-price 900 руб.
+											button.product__cost-btn Заказать
+									.case__item.product(data-id="46589")
+										a(href="basket.html", title="Просмотреть корзину").product__check В корзине
+										button.product__delete(title="Удалить из корзины")
+										img.product__pic(src="img/pic-3.jpg", alt="")
+										p.product__name Каркас мостовидного протеза, протяженностью до 6 ед.
+										p.product__cost
+											span.product__cost-type По STL файлу
+											strong.product__cost-price 600 руб.
+											button.product__cost-btn Заказать
+										p.product__cost
+											span.product__cost-type С уровня модели
+											strong.product__cost-price 900 руб.
+											button.product__cost-btn Заказать
+									.case__item.product(data-id="98163210")
+										a(href="basket.html", title="Просмотреть корзину").product__check В корзине
+										button.product__delete(title="Удалить из корзины")
+										img.product__pic(src="img/pic-3.jpg", alt="")
+										p.product__name Каркас мостовидного протеза, протяженностью до 6 ед.
+										p.product__cost
+											span.product__cost-type По STL файлу
+											strong.product__cost-price 600 руб.
+											button.product__cost-btn Заказать
+										p.product__cost
+											span.product__cost-type С уровня модели
+											strong.product__cost-price 900 руб.
+											button.product__cost-btn Заказать
+
+
+
+		script(src="js/basket.js")
+		script(src="js/js.cookie.js")

@@ -1,0 +1,298 @@
+.case
+	&__list
+		display: flex
+		justify-content: stretch
+		align-items: stretch
+		flex-wrap: wrap
+		padding: 5px
+	&__item
+		margin: 5px
+		max-width: calc(33.33333% - 10px)
+		flex: 0 1 auto
+
+
+.product
+	border: 1px solid #f1f1f1
+	box-shadow: 0 0 5px rgba(0,0,0,.02)
+	border-radius: 3px
+	overflow: hidden
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: space-between
+	text-align: center
+	transition: all .2s
+	padding: 5px 5px 15px
+	position: relative
+	&:hover
+		box-shadow: 0 0 12px rgba(0,0,0,.1)
+	&__pic
+		display: block
+		margin-bottom: 10px
+	&__name
+		margin-bottom: auto
+		font-size: 14px
+		padding: 0 10px
+		font-weight: 500
+		margin: 0 0 5px
+	&__cost
+		text-align: left
+		margin: 5px 0 0
+		&-type
+			color: #727273
+			font-size: 10px
+			margin: 0 0 4px
+			display: block
+		&-price
+			background-color: #354f99
+			background-image: linear-gradient(to right, #2b2e7c, #508dcb)
+			font-size: 16px
+			color: #fff
+			text-transform: uppercase
+			border-radius: 3px
+			padding: 2px 8px
+			display: inline-block
+			vertical-align: middle
+		&-btn
+			color: #3a5ca4
+			background-color: transparent
+			border: 1px solid
+			border-radius: 3px
+			font-size: 13px
+			padding: 4px 8px
+			display: inline-block
+			vertical-align: middle
+			cursor: pointer
+			font-weight: 500
+			&:hover
+				background-color: #528fcd
+				color: #fff
+				border-color: #528fcd
+	&__check
+		visibility: hidden
+		position: absolute
+		z-index: 2
+		top: 50%
+		left: 50%
+		background-color: #34c153
+		padding: 8px 15px
+		white-space: nowrap
+		border-radius: 50px
+		transform: translate(-50%, -100%)
+		opacity: 0
+		transition: all .2s
+		cursor: pointer
+		text-decoration: none
+		color: #fff
+		font-weight: 500
+		&::before
+			content: '\e900'
+			@extend %icon
+			font-size: 25px
+			position: relative
+			display: inline-block
+			vertical-align: middle
+			top: -2px
+			margin-right: 10px
+		&:hover
+			background-color: darken(#34c153,15)
+	&__delete
+		position: absolute
+		z-index: 3
+		top: 10px
+		right: 10px
+		background-color: transparent
+		width: 35px
+		height: 35px
+		border-radius: 50%
+		transform: translateX(200%)
+		transition: all .2s
+		cursor: pointer
+		text-decoration: none
+		border: none
+		color: #ff4343
+		&::before
+			content: '\e901'
+			@extend %icon
+			font-size: 20px
+			line-height: 35px
+		&:hover
+			color: darken(#ff4343, 25)
+	&.added
+		user-select: none
+		box-shadow: none
+		&::before
+			content: ''
+			position: absolute
+			z-index: 1
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			background-color: #fff
+			opacity: .5
+		.product__check
+			visibility: visible
+			opacity: 1
+			transform: translate(-50%, -50%)
+		&:hover
+			.product__delete
+				transform: translateX(0)
+
+
+.basket
+	&__step
+		border: 1px solid #ebebeb
+		&-title
+			background-color: #ebebeb
+			font-size: 20px
+			font-weight: 500
+			margin: 0
+			padding: 5px 100px 10px 10px
+			position: relative
+		&-body
+			// display: none
+			padding: 25px
+			overflow: hidden
+		&--basket
+			.basket__step-body
+				display: block
+		&+&
+			margin-top: 10px
+	&__edit
+		position: absolute
+		top: 10px
+		right: 10px
+		padding: 0
+		border: none
+		background-color: transparent
+		font-size: 15px
+		color: #578ecc
+		cursor: pointer
+		display: none
+		&:hover
+			text-decoration: underline
+	&__next,
+	&__ok
+		font-size: 16px
+		float: right
+		background-color: #5283c5
+		border-radius: 6px
+		border: none
+		color: #fff
+		padding: 10px 25px
+		cursor: pointer
+		margin-top: 25px
+		&:hover
+			background-color: darken(#5283c5, 15)
+	&__ok
+		float: none
+		display: table
+		margin-left: auto
+		margin-right: auto
+	&__list
+	&__item
+		display: flex
+		flex-direction: row
+		justify-content: stretch
+		align-items: stretch
+		&+&
+			margin-top: 25px
+			padding-top: 25px
+			border-top: 1px solid #f1f1f1
+		&-pic
+			width: 200px
+			margin-right: 15px
+			img
+		&-info
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+			position: relative
+			width: 100%
+		&-name
+			font-size: 18px
+			color: #5583bc
+			margin: 0
+			font-weight: 500
+		&-costType,
+		&-quantity
+			font-size: 14px
+			color: #727273
+			margin: 5px 0 0
+			strong
+				color: #222
+		&-price
+			font-size: 24px
+			font-weight: 700
+			margin: auto 0 0
+			color: #222
+			padding-right: 30px
+		&-delete
+			position: absolute
+			z-index: 2
+			bottom: 5px
+			right: 0
+			background-color: transparent
+			width: 20px
+			height: 20px
+			border-radius: 50%
+			transition: all .2s
+			cursor: pointer
+			text-decoration: none
+			border: none
+			color: #ff4343
+			padding: 0
+			&::before
+				content: '\e901'
+				@extend %icon
+				font-size: 20px
+				line-height: 20px
+			&:hover
+				color: darken(#ff4343, 25)
+	&__total
+		color: #727273
+		font-size: 16px
+		text-align: right
+		strong
+				color: #222
+				font-size: 28px
+	&__group
+		&-label
+			margin: 0 0 5px
+			font-size: 14px
+			font-weight: 500
+			strong
+				color: #ff0000
+		&-field
+			width: 100%
+			padding: 5px 10px
+			border: 1px solid transparent
+			background-color: #fafafa
+			font-size: 16px
+			&:focus
+				border-color: #5283c5
+		&-radio
+			padding-left: 10px
+			input
+				margin: 0 5px 0 0
+				vertical-align: middle
+		&-helper
+			font-style: italic
+			margin: 5px 0 
+			font-size: 13px
+			color: #999
+		&-error
+			display: none
+			font-size: 13px
+			font-weight: 500
+			margin: 5px 0 0
+			font-style: italic
+			color: #ff0000
+		&.invalid
+			.basket__group-error
+				display: block
+		&+&
+			margin-top: 20px
+		
+
