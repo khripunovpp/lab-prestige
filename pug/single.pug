@@ -40,9 +40,6 @@ html
 											span.product__cost-type С уровня модели
 											strong.product__cost-price 9000 руб.
 											button.product__cost-btn Заказать
-
-
-
 									.case__item.product(data-id="3516561")
 										a(href="basket.html", title="Просмотреть корзину").product__check В корзине
 										button.product__delete(title="Удалить из корзины")
@@ -83,7 +80,60 @@ html
 											strong.product__cost-price 900 руб.
 											button.product__cost-btn Заказать
 
+							.priceTable
+								.priceTable__head
+									.priceTable__row
+										.priceTable__category Система имплантов
+										.priceTable__costType.priceTable__costType--stl По STL файлу
+										.priceTable__costType.priceTable__costType--model С уровня модели
+										.priceTable__cell
+								.priceTable__body
+									.priceTable__row(data-id="nzf")
+										.priceTable__name Zimmer,Mis, AlphaBio, Adin, BioGorizont, Conmet
+										.priceTable__price.priceTable__price--stl 1100 руб.
+										.priceTable__price.priceTable__price--model 1835 руб.
+										a(href="basket.html").priceTable__added В корзине
+										button.priceTable__btn Заказать
+									.priceTable__row(data-id="dfbdfb")
+										.priceTable__name Niko 
+										.priceTable__price.priceTable__price--stl 1100 руб.
+										.priceTable__price.priceTable__price--model 1500 руб.
+										a(href="basket.html").priceTable__added В корзине
+										button.priceTable__btn Заказать
+									.priceTable__row(data-id="q3r2YHRB")
+										.priceTable__name Ankylos
+										.priceTable__price.priceTable__price--stl 1100 руб.
+										.priceTable__price.priceTable__price--model 1500 руб.
+										a(href="basket.html").priceTable__added В корзине
+										button.priceTable__btn Заказать
+									.priceTable__row(data-id="UKMSW5UAT")
+										.priceTable__name Nobel Replace, Nobel Active,Xive, Astra tech, BegoSemados, IСX 
+										.priceTable__price.priceTable__price--stl 1100 руб.
+										.priceTable__price.priceTable__price--model 1500 руб.
+										a(href="basket.html").priceTable__added В корзине
+										button.priceTable__btn Заказать
 
+
+			.addConfirm
+				table.addConfirm__wrapper
+					tbody
+						tr
+							td.addConfirm__inner
+								.addConfirm__box
+									button.addConfirm__close
+									p.addConfirm__title Добавление в корзину
+									.addConfirm__tail
+										.addConfirm__product
+											p.addConfirm__product-category
+											p.addConfirm__product-name
+											p.addConfirm__product-cost.addConfirm__product-cost--stl
+												span.addConfirm__product-cost_type
+												strong.addConfirm__product-cost_price
+												button.addConfirm__product-cost_btn Заказать
+											p.addConfirm__product-cost.addConfirm__product-cost--model
+												span.addConfirm__product-cost_type
+												strong.addConfirm__product-cost_price
+												button.addConfirm__product-cost_btn Заказать
 
 		script(src="js/basket.js")
 		script(src="js/js.cookie.js")
