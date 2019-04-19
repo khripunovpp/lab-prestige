@@ -40,10 +40,13 @@ var basket = {
 
         _that.basket = $('.basket')
 
+        _that.confrimPopup = $('.addConfirm')
+
         _that._update()
 
         $('body').on('click', '.product:not(.added) .product__cost-btn, .addConfirm__product-cost_btn', function(e) {
             _that._add.call(_that, e)
+            _that.confrimPopup.hide()
         })
 
         $('body').on('click', '.priceTable__row:not(.added) .priceTable__btn', function(e) {
@@ -64,20 +67,20 @@ var basket = {
         var _that = this
 
         var target = $(event.target),
-            product, cost, price, name, costType, quantity, thumb
+            product, cost, price, name, costType, quantity, thumb;
 
-        if (target.hasClass('.addConfirm__product-cost_btn')) {
+        if (target.hasClass('addConfirm__product-cost_btn')) {
             product = target.closest('.addConfirm__product')
-
-            console.log(product)
             id = product.attr('data-id')
             name = product.find('.addConfirm__product-name').text()
             costType = target.closest('.addConfirm__product-cost').find('.addConfirm__product-cost_type').text()
             price = target.closest('.addConfirm__product-cost').find('.addConfirm__product-cost_price').text()
+            price = price.substring(0, price.length - 5)
             thumb = null
             quantity = 1
         } else {
             product = $(event.target).closest('.product')
+
             id = product.attr('data-id')
             cost = $(event.target).closest('.product__cost')
             price = cost.find('.product__cost-price').text()
@@ -99,8 +102,6 @@ var basket = {
             thumb: thumb
         }
 
-        console.log(item)
-
         _that._addBasket(item)
 
     },
@@ -117,14 +118,13 @@ var basket = {
             priceModel = product.find('.priceTable__price--model').text(),
             category = $('.priceTable__category').text();
 
-        var confrimPopup = $('.addConfirm'),
-            costTypeStlEl = confrimPopup.find('.addConfirm__product-cost--stl'),
-            costTypeModellEl = confrimPopup.find('.addConfirm__product-cost--model');
+        var costTypeStlEl = _that.confrimPopup.find('.addConfirm__product-cost--stl'),
+            costTypeModellEl = _that.confrimPopup.find('.addConfirm__product-cost--model');
 
-            confrimPopup.find('.addConfirm__product').attr('data-id', id)
+        _that.confrimPopup.find('.addConfirm__product').attr('data-id', id)
 
-        confrimPopup.find('.addConfirm__product-name').text(name)
-        confrimPopup.find('.addConfirm__product-category').text(category)
+        _that.confrimPopup.find('.addConfirm__product-name').text(name)
+        _that.confrimPopup.find('.addConfirm__product-category').text(category)
 
         costTypeStlEl.find('.addConfirm__product-cost_type').text(costTypeStl)
         costTypeStlEl.find('.addConfirm__product-cost_price').text(priceStl)
@@ -132,7 +132,7 @@ var basket = {
         costTypeModellEl.find('.addConfirm__product-cost_type').text(costTypeModel)
         costTypeModellEl.find('.addConfirm__product-cost_price').text(priceModel)
 
-        confrimPopup.show()
+        _that.confrimPopup.show()
     },
     _addBasket: function(prod) {
         var _that = this
@@ -144,6 +144,8 @@ var basket = {
         basket.push(prod)
 
         $.cookie('basket', JSON.stringify(basket));
+
+        _that._update()
     },
     _getBasket: function() {
         return JSON.parse($.cookie('basket')) || []

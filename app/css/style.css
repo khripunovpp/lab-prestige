@@ -135,7 +135,11 @@ select:-internal-autofill-selected {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 5px;
+  margin-left: -10px;
+  margin-top: -10px;
+  -webkit-transform: translate(5px, 5px);
+  -ms-transform: translate(5px, 5px);
+  transform: translate(5px, 5px);
 }
 
 .case__item {
@@ -150,8 +154,8 @@ select:-internal-autofill-selected {
 
 .product {
   border: 1px solid #f1f1f1;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.02);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.02);
+  -webkit-box-shadow: 0 0 0 transparent;
+  box-shadow: 0 0 0 transparent;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   overflow: hidden;
@@ -698,6 +702,11 @@ select:-internal-autofill-selected {
   display: none;
 }
 
+.priceTable__row:hover .priceTable__name,
+.priceTable__row:hover .priceTable__price {
+  background-color: #bcdff7;
+}
+
 .priceTable__row + .priceTable__row {
   margin-top: 4px;
 }
@@ -728,6 +737,9 @@ select:-internal-autofill-selected {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
 }
 
 .priceTable__cell + .priceTable__cell, .priceTable__costType + .priceTable__cell, .priceTable__price + .priceTable__cell, .priceTable__name + .priceTable__cell, .priceTable__category + .priceTable__cell, .priceTable__cell + .priceTable__costType, .priceTable__costType + .priceTable__costType, .priceTable__price + .priceTable__costType, .priceTable__name + .priceTable__costType, .priceTable__category + .priceTable__costType, .priceTable__cell + .priceTable__price, .priceTable__costType + .priceTable__price, .priceTable__price + .priceTable__price, .priceTable__name + .priceTable__price, .priceTable__category + .priceTable__price, .priceTable__cell + .priceTable__name, .priceTable__costType + .priceTable__name, .priceTable__price + .priceTable__name, .priceTable__name + .priceTable__name, .priceTable__category + .priceTable__name, .priceTable__cell + .priceTable__category, .priceTable__costType + .priceTable__category, .priceTable__price + .priceTable__category, .priceTable__name + .priceTable__category, .priceTable__category + .priceTable__category {

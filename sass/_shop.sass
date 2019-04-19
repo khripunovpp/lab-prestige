@@ -5,7 +5,9 @@
 		justify-content: stretch
 		align-items: stretch
 		flex-wrap: wrap
-		padding: 5px
+		margin-left: -10px
+		margin-top: -10px
+		transform: translate(5px, 5px)
 	&__item
 		margin: 5px
 		max-width: calc(33.33333% - 10px)
@@ -14,7 +16,7 @@
 
 .product
 	border: 1px solid #f1f1f1
-	box-shadow: 0 0 5px rgba(0,0,0,.02)
+	box-shadow: 0 0 0 transparent
 	border-radius: 3px
 	overflow: hidden
 	display: flex
@@ -362,6 +364,10 @@
 				display: flex
 			.priceTable__btn
 				display: none
+		&:hover
+			.priceTable__name,
+			.priceTable__price
+				background-color: darken(#d3eafa, 5)
 		&+&
 			margin-top: 4px
 	&__cell,
@@ -381,6 +387,7 @@
 		display: flex
 		justify-content: center
 		align-items: center
+		transition: all .2s
 		&+&
 			margin-left: 4px
 		&:first-child
