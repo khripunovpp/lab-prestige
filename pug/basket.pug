@@ -24,49 +24,69 @@ html
 					.main__inner
 						.main__sidebar
 						.main__content
-							.basket
+							form(action="", method="post").basket
 								.basket__step.basket__step--delivery
 									p.basket__step-title Регион доставки
-										button.basket__edit Изменить
+										button(type="button").basket__edit Изменить
 									.basket__step-body
 										.basket__group
 											p.basket__group-label Тип плательщика
-											.basket__group-radio
-												input(type="radio", name="role", value="1", checked)
+											.basket__group-radio.checked
+												input(type="radio", name="role", value="1", checked, required)
 												| Физическое лицо
 											.basket__group-radio
-												input(type="radio", name="role", value="2")
+												input(type="radio", name="role", value="2", required)
 												| Юридическое лицо
 										.basket__group
-											p.basket__group-label Местопложение
+											p.basket__group-label #[strong *] Местопложение
 											p.basket__group-helper Местоположение определено автоматически. Если не верно, введите название своего города.
-											input(type="text", name="location").basket__group-field
-										button.basket__next Далее
-								.basket__step.basket__step--contacts
+											input(type="text", name="location", required).basket__group-field
+										button(type="button").basket__next Далее
+								.basket__step.basket__step--contacts.disabled
 									p.basket__step-title Данные покупателя
-										button.basket__edit Изменить
+										button(type="button").basket__edit Изменить
 									.basket__step-body
 										.basket__group
 											p.basket__group-label #[strong *] ФИО
-											input(type="text", name="fio").basket__group-field
+											input(type="text", name="fio", required).basket__group-field
 										.basket__group
 											p.basket__group-label #[strong *] E-mail
-											input(type="email", name="mail").basket__group-field
+											input(type="email", name="mail", required).basket__group-field
 										.basket__group
 											p.basket__group-label #[strong *] Телефон
-											input(type="tel", name="phone").basket__group-field
+											input(type="tel", name="phone", required).basket__group-field
 										.basket__group
 											p.basket__group-label Комментарии к доставке
 											textarea(rows=3, name="comments").basket__group-field
-										button.basket__next Далее
-								.basket__step.basket__step--basket
+										button(type="button").basket__next Далее
+								.basket__step.basket__step--basket.disabled
 									p.basket__step-title Товары в заказе
 									.basket__step-body
 										.basket__list
+										p.basket__empty Корзина пуста
 										p.basket__total Всего на сумму: #[strong #[span.js-basketTotal 0 ] руб.]
-										button.basket__ok Оформить заказ
+										button.basket__ok(type="button") Оформить заказ
+
+			.response.response--success
+				table.response__wrapper
+					tbody
+						tr
+							td.response__inner
+								.response__box
+									button.response__close
+									p.response__title Ваша заявка принята
+									p.response__text Спасибо за ваше доверие! В ближайшее время мы вам перезвоним.
+
+			.response.response--error
+				table.response__wrapper
+					tbody
+						tr
+							td.response__inner
+								.response__box
+									button.response__close
+									p.response__title Ошибка
+									p.response__text Что-то пошло не так. Пожалуйста, свяжитесь с нами удобным для вас способом.
 
 		
-
 		script(src="js/basket.js")
 		script(src="js/js.cookie.js")

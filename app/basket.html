@@ -24,65 +24,96 @@
           <div class="main__inner">
             <div class="main__sidebar"></div>
             <div class="main__content">
-              <div class="basket">
+              <form class="basket" action="" method="post">
                 <div class="basket__step basket__step--delivery">
                   <p class="basket__step-title">Регион доставки
-                    <button class="basket__edit">Изменить</button>
+                    <button class="basket__edit" type="button">Изменить</button>
                   </p>
                   <div class="basket__step-body">
                     <div class="basket__group">
                       <p class="basket__group-label">Тип плательщика</p>
-                      <div class="basket__group-radio">
-                        <input type="radio" name="role" value="1" checked>Физическое лицо
+                      <div class="basket__group-radio checked">
+                        <input type="radio" name="role" value="1" checked required>Физическое лицо
                       </div>
                       <div class="basket__group-radio">
-                        <input type="radio" name="role" value="2">Юридическое лицо
+                        <input type="radio" name="role" value="2" required>Юридическое лицо
                       </div>
                     </div>
                     <div class="basket__group">
-                      <p class="basket__group-label">Местопложение</p>
+                      <p class="basket__group-label"><strong>*</strong> Местопложение</p>
                       <p class="basket__group-helper">Местоположение определено автоматически. Если не верно, введите название своего города.</p>
-                      <input class="basket__group-field" type="text" name="location">
+                      <input class="basket__group-field" type="text" name="location" required>
                     </div>
-                    <button class="basket__next">Далее</button>
+                    <button class="basket__next" type="button">Далее</button>
                   </div>
                 </div>
-                <div class="basket__step basket__step--contacts">
+                <div class="basket__step basket__step--contacts disabled">
                   <p class="basket__step-title">Данные покупателя
-                    <button class="basket__edit">Изменить</button>
+                    <button class="basket__edit" type="button">Изменить</button>
                   </p>
                   <div class="basket__step-body">
                     <div class="basket__group">
                       <p class="basket__group-label"><strong>*</strong> ФИО</p>
-                      <input class="basket__group-field" type="text" name="fio">
+                      <input class="basket__group-field" type="text" name="fio" required>
                     </div>
                     <div class="basket__group">
                       <p class="basket__group-label"><strong>*</strong> E-mail</p>
-                      <input class="basket__group-field" type="email" name="mail">
+                      <input class="basket__group-field" type="email" name="mail" required>
                     </div>
                     <div class="basket__group">
                       <p class="basket__group-label"><strong>*</strong> Телефон</p>
-                      <input class="basket__group-field" type="tel" name="phone">
+                      <input class="basket__group-field" type="tel" name="phone" required>
                     </div>
                     <div class="basket__group">
                       <p class="basket__group-label">Комментарии к доставке</p>
                       <textarea class="basket__group-field" rows="3" name="comments"></textarea>
                     </div>
-                    <button class="basket__next">Далее</button>
+                    <button class="basket__next" type="button">Далее</button>
                   </div>
                 </div>
-                <div class="basket__step basket__step--basket">
+                <div class="basket__step basket__step--basket disabled">
                   <p class="basket__step-title">Товары в заказе</p>
                   <div class="basket__step-body">
                     <div class="basket__list"></div>
+                    <p class="basket__empty">Корзина пуста</p>
                     <p class="basket__total">Всего на сумму: <strong><span class="js-basketTotal">0 </span> руб.</strong></p>
-                    <button class="basket__ok">Оформить заказ</button>
+                    <button class="basket__ok" type="button">Оформить заказ</button>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
+      </div>
+      <div class="response response--success">
+        <table class="response__wrapper">
+          <tbody>
+            <tr>
+              <td class="response__inner">
+                <div class="response__box">
+                  <button class="response__close"></button>
+                  <p class="response__title">Ваша заявка принята</p>
+                  <p class="response__text">Спасибо за ваше доверие! В ближайшее время мы вам перезвоним.</p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="response response--error">
+        <table class="response__wrapper">
+          <tbody>
+            <tr>
+              <td class="response__inner">
+                <div class="response__box">
+                  <button class="response__close"></button>
+                  <p class="response__title">Ошибка</p>
+                  <p class="response__text">Что-то пошло не так. Пожалуйста, свяжитесь с нами удобным для вас способом.</p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
     <script src="js/basket.js"></script>

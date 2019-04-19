@@ -50,6 +50,8 @@ input,
 textarea,
 select
 	font-family: $font
+	&:-internal-autofill-selected
+		background-color: transparent !important
 
 %container
 	width: 100%
@@ -81,6 +83,52 @@ select
 		vertical-align: top
 	&__sidebar
 		width: 30%
+
+.response
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 8
+	overflow: auto
+	background-color: rgba(0, 0, 0, 0.5)
+	display: none
+	&__wrapper
+		height: 100%
+		width: 100%
+	&__inner
+		vertical-align: middle
+		padding: 15px
+	&__box
+		background-color: #fff
+		width: 100%
+		max-width: 570px
+		position: relative
+		overflow: hidden
+		margin: 0 auto
+		padding: 45px
+		box-shadow: 0 0 50px rgba(0,0,0,.5)
+		text-align: center
+	&__close
+		position: absolute
+		top: 15px
+		right: 15px
+		width: 20px
+		height: 20px
+		padding: 0
+		border: none
+		background-color: transparent
+		background-image: url(../img/icon-close-response.png)
+		cursor: pointer
+	&__title
+		font-size: 30px
+		margin: 0 0 20px
+		color: #5283c5
+	&__text
+		font-size: 18px
+		color: #737373
+		margin: 0
 
 @import "shop"
 

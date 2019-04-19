@@ -6,7 +6,7 @@
   font-style: normal;
 }
 
-.product__check::before, .product__delete::before, .basket__item-delete::before {
+.product__check::before, .product__delete::before {
   font-family: 'icomoon' !important;
   speak: none;
   font-style: normal;
@@ -90,6 +90,13 @@ select {
   font-family: "Montserrat", sans-serif;
 }
 
+button:-internal-autofill-selected,
+input:-internal-autofill-selected,
+textarea:-internal-autofill-selected,
+select:-internal-autofill-selected {
+  background-color: transparent !important;
+}
+
 .container {
   width: 100%;
   max-width: 1170px;
@@ -110,6 +117,66 @@ select {
 
 .main__sidebar {
   width: 30%;
+}
+
+.response {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 8;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.response__wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.response__inner {
+  vertical-align: middle;
+  padding: 15px;
+}
+
+.response__box {
+  background-color: #fff;
+  width: 100%;
+  max-width: 570px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 45px;
+  -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.response__close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  background-image: url(../img/icon-close-response.png);
+  cursor: pointer;
+}
+
+.response__title {
+  font-size: 30px;
+  margin: 0 0 20px;
+  color: #5283c5;
+}
+
+.response__text {
+  font-size: 18px;
+  color: #737373;
+  margin: 0;
 }
 
 .case__list {
@@ -344,6 +411,13 @@ select {
   transform: translateX(0);
 }
 
+.basket__empty {
+  display: none;
+  margin: 50px 0;
+  text-align: center;
+  font-size: 25px;
+}
+
 .basket__step {
   border: 1px solid #ebebeb;
 }
@@ -362,12 +436,66 @@ select {
   overflow: hidden;
 }
 
-.basket__step--basket .basket__step-body {
+.basket__step + .basket__step {
+  margin-top: 10px;
+}
+
+.basket__step.disabled .basket__step-body {
+  display: none;
+}
+
+.basket__step.done .basket__step-body {
+  display: block;
+  padding: 10px 25px;
+}
+
+.basket__step.done .basket__next {
+  display: none;
+}
+
+.basket__step.done .basket__group {
+  margin: 0;
+}
+
+.basket__step.done .basket__group-field {
+  width: auto;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.basket__step.done .basket__group-label {
+  margin: 0 5px 0 0;
+  font-weight: 600;
+}
+
+.basket__step.done .basket__group-radio {
+  padding: 0;
+}
+
+.basket__step.done .basket__group-helper, .basket__step.done .basket__group-error,
+.basket__step.done .basket__group-label strong, .basket__step.done .basket__group-radio,
+.basket__step.done .basket__group-radio input {
+  display: none;
+}
+
+.basket__step.done .basket__group-label, .basket__step.done .basket__group-radio.checked, .basket__step.done .basket__group-field {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.basket__step--basket.disabled .basket__step-body {
   display: block;
 }
 
-.basket__step + .basket__step {
-  margin-top: 10px;
+.basket__step--basket.disabled .basket__item-delete,
+.basket__step--basket.disabled .basket__ok {
+  display: none;
 }
 
 .basket__edit {
@@ -491,8 +619,6 @@ select {
   bottom: 5px;
   right: 0;
   background-color: transparent;
-  width: 20px;
-  height: 20px;
   -webkit-border-radius: 50%;
   border-radius: 50%;
   -webkit-transition: all .2s;
@@ -505,20 +631,15 @@ select {
   padding: 0;
 }
 
-.basket__item-delete::before {
-  content: '\e901';
-  font-size: 20px;
-  line-height: 20px;
-}
-
 .basket__item-delete:hover {
-  color: #c30000;
+  text-decoration: underline;
 }
 
 .basket__total {
   color: #727273;
   font-size: 16px;
   text-align: right;
+  margin: 25px 0 0;
 }
 
 .basket__total strong {
@@ -540,7 +661,7 @@ select {
   width: 100%;
   padding: 5px 10px;
   border: 1px solid transparent;
-  background-color: #fafafa;
+  background-color: #E8F0FE;
   font-size: 16px;
 }
 
@@ -579,6 +700,18 @@ select {
 
 .basket__group + .basket__group {
   margin-top: 20px;
+}
+
+.basket.empty .basket__empty,
+.basket.empty .basket__step--basket .basket__step-body {
+  display: block;
+}
+
+.basket.empty .basket__step--delivery,
+.basket.empty .basket__step--contacts,
+.basket.empty .basket__ok,
+.basket.empty .basket__total {
+  display: none;
 }
 
 /* Desktop-frist */

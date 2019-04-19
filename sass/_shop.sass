@@ -141,6 +141,11 @@
 
 
 .basket
+	&__empty
+		display: none
+		margin: 50px 0
+		text-align: center
+		font-size: 25px
 	&__step
 		border: 1px solid #ebebeb
 		&-title
@@ -151,14 +156,53 @@
 			padding: 5px 100px 10px 10px
 			position: relative
 		&-body
-			// display: none
 			padding: 25px
 			overflow: hidden
-		&--basket
-			.basket__step-body
-				display: block
 		&+&
 			margin-top: 10px
+		&.disabled
+			.basket__step-body
+				display: none
+		&.done
+			.basket
+				&__step-body
+					display: block
+					padding: 10px 25px
+				&__next
+					display: none
+				&__group
+					margin: 0
+					&-field
+						width: auto
+						padding: 0
+						border: none
+						background-color: transparent
+						user-select: none
+						pointer-events: none
+					&-label
+						margin: 0 5px 0 0
+						font-weight: 600
+					&-radio
+						padding: 0
+					&-helper,
+					&-error,
+					&-label strong,
+					&-radio,
+					&-radio input,
+						display: none
+					&-label,
+					&-radio.checked,
+					&-field
+						display: inline-block
+						vertical-align: top
+		&--basket
+			&.disabled
+				.basket__step-body
+					display: block
+				.basket__item-delete,
+				.basket__ok
+					display: none
+
 	&__edit
 		position: absolute
 		top: 10px
@@ -234,8 +278,6 @@
 			bottom: 5px
 			right: 0
 			background-color: transparent
-			width: 20px
-			height: 20px
 			border-radius: 50%
 			transition: all .2s
 			cursor: pointer
@@ -243,17 +285,13 @@
 			border: none
 			color: #ff4343
 			padding: 0
-			&::before
-				content: '\e901'
-				@extend %icon
-				font-size: 20px
-				line-height: 20px
 			&:hover
-				color: darken(#ff4343, 25)
+				text-decoration: underline
 	&__total
 		color: #727273
 		font-size: 16px
 		text-align: right
+		margin: 25px 0 0
 		strong
 				color: #222
 				font-size: 28px
@@ -268,7 +306,7 @@
 			width: 100%
 			padding: 5px 10px
 			border: 1px solid transparent
-			background-color: #fafafa
+			background-color: #E8F0FE
 			font-size: 16px
 			&:focus
 				border-color: #5283c5
@@ -294,5 +332,14 @@
 				display: block
 		&+&
 			margin-top: 20px
+	&.empty
+		.basket__empty,
+		.basket__step--basket .basket__step-body
+			display: block
+		.basket__step--delivery,
+		.basket__step--contacts,
+		.basket__ok,
+		.basket__total
+			display: none
 		
 
