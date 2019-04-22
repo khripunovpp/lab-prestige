@@ -1,0 +1,122 @@
+footer.footer
+	.container
+		.footer__inner
+			a(href="").footer__logo
+				img(src="img/logo.jpg", alt="")
+			.footer__menu
+				ul
+					li
+						a(href="") О лаборатории
+					li
+						a(href="") Наши работы
+					li
+						a(href="") Услуги и цены
+			.footer__additional
+				p.footer__additional-caption ПРАВОВАЯ ИНФОРМАЦИЯ
+				ul
+					li
+						a(href="") Согласие на обработку персональных данных
+					li
+						a(href="") Политика конфиденциальности
+					li
+						a(href="") Реквизиты организации
+				.footer__payments
+					p.footer__payments-caption ОПЛАТА УСУЛУГ
+					p.footer__payments-text Услуги стоматологической клиники «Валидент» — вы можете оплатить любым удобным для вас способом:
+					.footer__payments-icons #[i]#[i]#[i]#[i]
+					a(href="").footer__payments-credit Оплата в рассрочку
+			.footer__contacts
+				a.footer__contacts-phone(href="tel:+74952660607") +7 (495) 266 06 07
+				p.footer__contacts-hours 9:00-21:00, СБ-ВС 10:00-20:00
+				.footer__contacts-address
+					p ул.Первомайская, д.60, к.1 
+					p ул.Краснодонская, д.20, к.2
+				button.footer__contacts-btn.btn.js-callback Обратный звонок
+		p.footer__disclamer Информация, размещенная на сайте, не является публичной офертой. #[br]Актуальную информацию о ценах, акциях и предложениях уточняйте по телефону.
+
+.callback.overlay
+	table.callback__wrapper
+		tbody
+			tr
+				td.callback__inner
+					form.callback__box.overlay-inner
+						button(type="button").callback__close.overlay-close
+						p.callback__title Обратный звонок
+						p.callback__text Перезвоним в удобное для Вас время
+						.callback__tail
+							.callback__group
+								label.callback__label Ваше имя #[strong *]
+								input(type="text").callback__field
+							.callback__group
+								label.callback__label Контактный телефон #[strong *]
+								input(type="tel").callback__field
+							.callback__group
+								label.callback__label Сообщение
+								textarea(rows="2").callback__field
+						button.callback__submit Отправить запрос
+
+
+.registration.overlay
+	table.registration__wrapper
+		tbody
+			tr
+				td.registration__inner
+					form.registration__box.overlay-inner
+						button(type="button").registration__close.overlay-close
+						p.registration__title Регистрация
+						.registration__tail
+							.registration__group
+								label.registration__label Ваше имя #[strong *]
+								input(type="text").registration__field
+							.registration__group
+								label.registration__label Контактный телефон #[strong *]
+								input(type="tel").registration__field
+							.registration__group
+								label.registration__label E-mail #[strong *]
+								input(type="email").registration__field
+						button.registration__submit Отправить запрос
+
+
+
+
+.addConfirm.overlay
+	table.addConfirm__wrapper
+		tbody
+			tr
+				td.addConfirm__inner
+					.addConfirm__box.overlay-inner
+						button.addConfirm__close.overlay-close
+						p.addConfirm__title Добавление в корзину
+						.addConfirm__tail
+							.addConfirm__product
+								p.addConfirm__product-category
+								p.addConfirm__product-name
+								p.addConfirm__product-cost.addConfirm__product-cost--stl
+									span.addConfirm__product-cost_type
+									strong.addConfirm__product-cost_price
+									button.addConfirm__product-cost_btn Заказать
+								p.addConfirm__product-cost.addConfirm__product-cost--model
+									span.addConfirm__product-cost_type
+									strong.addConfirm__product-cost_price
+									button.addConfirm__product-cost_btn Заказать
+
+
+.response.response--success
+	table.response__wrapper
+		tbody
+			tr
+				td.response__inner
+					.response__box
+						button.response__close
+						p.response__title Ваша заявка принята
+						p.response__text Спасибо за ваше доверие! В ближайшее время мы вам перезвоним.
+
+.response.response--error
+	table.response__wrapper
+		tbody
+			tr
+				td.response__inner
+					.response__box
+						button.response__close
+						p.response__title Ошибка
+						p.response__text Что-то пошло не так. Пожалуйста, свяжитесь с нами удобным для вас способом.

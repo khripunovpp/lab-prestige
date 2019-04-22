@@ -1,0 +1,24 @@
+.contacts
+	.contacts__head
+		.contacts__photo(style='background-image: url(img/contacts-pic.jpg)')
+		.contacts__map
+			iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5334.899848683421!2d37.78928104803808!3d55.79238567453288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b534d3ab6fa24b%3A0xae38f72a6ddb8077!2z0YPQuy4g0J_QtdGA0LLQvtC80LDQudGB0LrQsNGPLCA2MCDQutC-0YDQv9GD0YEgMSwg0JzQvtGB0LrQstCwLCAxMDUwNDM!5e0!3m2!1sru!2sru!4v1527699627329', width='100%', height='280', frameborder='0', style='border:0', allowfullscreen='')
+	.contacts__body
+		span.contacts__caption Контактные данные
+		.contacts__left
+			ul.contacts__list
+				li.contacts__item.contacts__item--address
+					span.contacts__term Адрес:
+					span.contacts__desc ул.Первомайская, д.60, к.1 
+					span.contacts__desc ул.Первомайская, д.60, к.1
+				li.contacts__item
+					span.contacts__term Телефон:
+					a#comagic_phone2.contacts__desc(href='tel:+74952660607') + 7 (495) 266 06 07
+				li.contacts__item
+					span.contacts__term E-mail:
+					a.contacts__desc(href="mailto:clinic@valident.ru") clinic@valident.ru
+				li.contacts__item
+					span.contacts__term Время работы:
+					span.contacts__desc 10:00-21:00, СБ-ВС 10:00-20:00
+		.contacts__right
+			button.contacts__btn.btn.js-callback Обратный звонок

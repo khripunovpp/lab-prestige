@@ -15,7 +15,7 @@ html
 	outline: none
 
 @include placeholder()
-  color: #eee
+	color: #bbb
 
 body
 	margin: 0	
@@ -78,7 +78,7 @@ select
 		display: table
 		table-layout: fixed
 		width: 100%
-		padding: 40px 0
+		padding: 50px 0
 	&__sidebar,
 	&__content
 		display: table-cell
@@ -86,12 +86,15 @@ select
 	&__sidebar
 		width: 30%
 		padding-right: 40px
+	&__title
+		font-size: 24px
+		text-transform: uppercase
+		margin: 0 0 15px
 
 .header
 	position: relative
 	z-index: 2
 	background-color: #fff
-	&::after,
 	&::before
 		content: ''
 		width: 100%
@@ -99,12 +102,9 @@ select
 		position: absolute
 		left: 0
 		background-color: #1f1c63
+		background-image: linear-gradient(to left,  #1f1c63, #5ea6fa)
 	&::before
 		top: 0
-		background-image: linear-gradient(to right,  #1f1c63, #5ea6fa)
-	&::after
-		bottom: 0
-		background-image: linear-gradient(to left,  #1f1c63, #5ea6fa)
 	&__inner
 		display: flex
 		align-items: center
@@ -125,6 +125,8 @@ select
 			display: block
 			color: inherit
 			text-decoration: none
+			&:hover
+				color: #3a5ca4
 		p
 			margin: 0
 			color: #999
@@ -142,6 +144,10 @@ select
 		text-decoration: none
 		line-height: 1
 		font-size: 13px
+		padding: 0
+		background-color: transparent
+		border: none
+		cursor: pointer
 		&+&
 			margin-top: 10px
 		&:hover
@@ -166,16 +172,21 @@ select
 	display: inline-block
 	text-decoration: none
 	color: inherit
-	border: 2px solid #3a5ca4
 	border-radius: 50px
 	font-size: 17px
 	font-weight: 500
 	padding: 10px 23px
 	cursor: pointer
-	color: #3a5ca4
+	color: #fff
+	background-color: #24227b
+	background-image: linear-gradient(to right, #24227b, #2a9bd7)
+	border: none
 	transition: all .1s
 	&--ghost
 		background-color: transparent
+		background-image: none
+		color: #3a5ca4
+		border: 2px solid #3a5ca4
 		&:hover
 			background-color: #3a5ca4
 			color: #fff
@@ -187,6 +198,7 @@ select
 	opacity: .99
 	position: relative
 	z-index: 1
+	box-shadow: 0 5px 15px rgba(0,0,0,.2)
 	&::before
 		content: ''
 		background-image: linear-gradient(to right,  #1f1c63, #5ea6fa)
@@ -199,9 +211,9 @@ select
 		display: flex
 		justify-content: space-between
 		align-content: center
-		padding: 15px 0
 		position: relative
 		z-index: 5
+		padding: 4px 0
 	&__item
 		color: #fff
 		text-decoration: none
@@ -209,10 +221,8 @@ select
 		line-height: 1
 		font-weight: 300
 		padding-bottom: 3px
-		border-bottom: 1px solid transparent
 		transition: all .2s
-		&:hover
-			border-color: #fff
+		padding: 15px 10px
 		&--hasSubMenu
 			position: relative
 			margin-left: 35px
@@ -221,6 +231,10 @@ select
 				@extend %icon
 				position: absolute
 				left: -35px
+				color: #fff
+		&:hover
+			background-color: #fff
+			color: #3a5ca4
 	&__menu
 		position: absolute
 		z-index: -1
@@ -228,7 +242,7 @@ select
 		left: 0
 		width: 100%
 		background-color: #fff
-		transform: translateY(-100%)
+		transform: translateY(-101%)
 		transition: all .2s ease-out
 		&::after
 			content: ''
@@ -242,13 +256,8 @@ select
 			max-width: 1170px
 			background-color: transparent
 			margin: 0 auto
-			display: flex
-			flex-flow: column wrap
-			justify-content: space-around
-			width: 100%
-			max-height: 300px
+			columns: 3
 			&__item
-				width: 33.3333%
 				ul
 					display: block
 	&.showSub
@@ -288,6 +297,7 @@ select
 	position: relative
 	transition: all .2s
 	box-shadow: 0 0 0 transparent
+	margin-bottom: 20px
 	&::before
 		content: '\e907'
 		@extend %icon
@@ -307,6 +317,323 @@ select
 		box-shadow: 0 0 10px rgba(0,0,0,.05)
 		&::before
 			opacity: 1
+
+.photoGallery
+	margin: 30px 0 0
+	font-size: 0
+	img
+		height: 200px
+
+.contacts
+	margin: 30px 0 0
+	background-color: #f8f8f8
+	&__head
+		display: table
+		table-layout: fixed
+		width: 100%
+		font-size: 0
+	&__photo
+		background-image: url(img/map.jpg)
+		background-size: cover
+		display: table-cell
+		vertical-align: top
+	&__map
+		display: table-cell
+		vertical-align: top
+	&__body
+		padding: 25px
+		overflow: auto
+	&__caption
+		display: block
+		font-size: 24px
+		font-weight: 700
+		text-transform: uppercase
+		margin: 10px 0 20px
+	&__left
+		width: 60%
+		float: left
+	&__right
+		width: 40%
+		text-align: right
+		float: right
+		position: relative
+	&__list
+		list-style-type: none
+		margin: 0
+		padding: 0
+	&__item
+		margin-bottom: 15px
+		font-size: 16px
+		a
+			&:hover
+				color: #3a5ca4
+		&:last-child
+			margin-bottom: 0
+		&--address
+			.contacts__desc
+				display: block
+	&__term
+		text-transform: uppercase
+		margin-right: 8px
+	&__desc
+		font-weight: 700
+		color: inherit
+		text-decoration: none
+
+
+.footer
+	padding: 120px 0 60px
+	position: relative
+	&::before
+		content: ''
+		background-image: linear-gradient(to right,  #1f1c63, #5ea6fa)
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 58px
+	&__inner
+		display: flex
+		justify-content: space-between
+	&__logo
+		max-width: 250px
+		position: relative
+		top: -25px
+	&__disclamer
+		margin: 80px 0 0
+		font-size: 15px
+		color: #bcbcbc
+		text-align: center
+	&__menu
+		ul
+			li
+				display: block
+			li+li
+				margin-top: 10px
+			a
+				text-decoration: none
+				color: #000
+				font-weight: 500
+				font-size: 15px
+				line-height: 1
+				&:hover
+					text-decoration: underline
+	&__additional
+		max-width: 250px
+		&-caption
+			margin: 0 0 5px
+			font-weight: 500
+			color: #000
+		ul
+			li
+				display: block
+			a
+				text-decoration: none
+				color: inherit
+				&:hover
+					text-decoration: underline
+	&__payments
+		margin-top: 50px
+		&-caption
+			margin: 0 0 5px
+			font-weight: 500
+			color: #000
+		&-text
+			margin: 0
+		&-icons
+			margin: 25px 0 10px
+			i
+				display: inline-block
+				font-size: 40px
+				line-height: 1
+				&::before
+					@extend %icon
+				&:nth-child(1)::before
+					content: '\e90b'
+				&:nth-child(2)::before
+					content: '\e90a'
+				&:nth-child(3)::before
+					content: '\e909'
+				&:nth-child(4)::before
+					content: '\e908'
+			i+i
+				margin-left: 5px
+		&-credit
+			color: #3a5ca4
+			text-decoration: none
+			font-size: 18px
+			font-weight: 500
+			&:hover
+				text-decoration: underline
+	&__contacts
+		text-align: right
+		white-space: nowrap
+		&-phone
+			font-size: 26px
+			color: inherit
+			text-decoration: none
+			&:hover
+				color: #3a5ca4
+		&-hours
+			color: #999
+			margin: 0
+		&-address
+			margin-top: 8px
+			p
+				line-height: 1.6
+				margin: 0
+		&-btn
+			margin-top: 10px
+
+
+.hero
+	position: relative
+	img
+		display: block
+		width: 100%
+	&__text
+		text-transform: uppercase
+		color: #fff
+		position: absolute
+		top: 15px
+		left: 15px
+		margin: 0
+		text-align: center
+		font-size: 25px
+		line-height: 1.2
+		font-weight: 500
+	&__btn
+		background-color: transparent
+		display: table
+		margin: 15px auto 0
+		color: #5cb2e0
+		border: 2px solid #2a9bd7
+		cursor: pointer
+		transition: all .2s
+		border-radius: 50px
+		padding: 9px 20px
+		font-size: 16px
+		&:hover
+			transform: scale(1.1)
+			background-color: #2a9bd7
+			color: #fff
+
+
+.content
+	margin-top: 15px
+	h1
+		font-size: 24px
+		text-transform: uppercase
+		margin: 0 0 15px
+	ul
+		list-style-type: disc
+		list-style-position: inside
+		margin-left: 15px
+
+
+.overlay
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 7
+	background-color: rgba(0, 0, 0, 0.3)
+
+.callback,
+.registration
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 8
+	overflow: auto
+	display: none
+	text-align: left
+	&__wrapper
+		height: 100%
+		width: 100%
+	&__inner
+		vertical-align: middle
+		padding: 15px
+	&__box
+		background-color: #fafafa
+		width: 100%
+		max-width: 500px
+		position: relative
+		overflow: hidden
+		margin: 0 auto
+		padding: 15px 20px 20px 
+		border-radius: 3px
+	&__close
+		position: absolute
+		top: 8px
+		right: 5px
+		border: none
+		background: transparent
+		cursor: pointer
+		outline: none
+		opacity: .5
+		&:before
+			@extend %icon
+			content: '\e90e'
+			width: 15px
+			height: 15px
+			top: 6px
+			left: 0
+		&:hover
+			opacity: 1
+	&__title
+		text-transform: uppercase
+		font-size: 25px
+		margin: 0
+		color: #3a5ca4
+		font-weight: 500
+	&__text
+		margin: 0
+	&__tail
+		margin: 20px 0 20px -40px
+		transform: translate(20px)
+		border-left: 3px solid #3a5ca4
+		border-right: 3px solid #3a5ca4
+		padding: 25px 17px
+		background-color: #ececec
+	&__group
+		position: relative
+		&+&
+			margin-top: 20px
+	&__label
+		font-size: 14px
+		color: #555
+		position: absolute
+		top: 10px
+		left: 15px
+		cursor: pointer
+		strong
+			color: #ff0000
+	&__field
+		background-color: #fff
+		border: none
+		width: 100%
+		border-radius: 3px
+		padding: 10px 15px
+		font-size: 16px
+	&__submit
+		display: table
+		margin: 0 auto
+		background-color: #5283c5
+		cursor: pointer
+		padding: 10px 25px
+		font-size: 16px
+		color: #fff
+		border: none
+		border-radius: 6px
+		&:hover
+			background-color: darken(#5283c5, 15)
+
+
+
 
 
 

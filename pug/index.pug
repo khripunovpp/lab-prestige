@@ -8,6 +8,8 @@ html
 		meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
 		link(rel='shortcut icon', href='img/favicon.ico', type='image/x-icon')
 		link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto:400,700,900")
+		link(rel='stylesheet', href='css/lightgallery.min.css')
+		link(rel='stylesheet', href='css/lightslider.min.css')
 		link(rel='stylesheet', href='css/style.css')
 		style.
 			*,
@@ -19,115 +21,47 @@ html
 
 	body
 		.w-page
-			header.header
-				.container
-					.header__inner
-						.header__logo
-							img(src="img/logo.jpg", alt="LabPrestige")
-						.header__contacts
-							.header__address
-								p ул.Первомайская, д.60, к.1
-								p ул.Краснодонская, д.20, к.2
-							.header__phone
-								a(href="tel:+74952660607") +7 (495) 266 06 07
-								p 9:00-21:00, СБ-ВС 10:00-20:00
-						.header__cb
-							button.btn.btn--ghost Обратный звонок
-						.header__lk.lk
-							a(href="").lk__item.lk__item--lk Личный кабинет
-							a(href="").lk__item.lk__item--reg Регистрация
-							a(href="").lk__item.lk__item--basket Корзина
-
-			nav.nav
-				.container
-					.nav__inner
-						a(href="").nav__item.nav__item--hasSubMenu Услуги и цены
-						a(href="").nav__item Наши работы
-						a(href="").nav__item Список систем
-						a(href="").nav__item Наше оборудование
-						a(href="").nav__item Контакты
-					.nav__menu
-						ul.menu
-							li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-								ul.subMenu
-									li.menu__item #[a(href="") ZrO2 для каркасов CAD/CAM]
-									li.menu__item.active ZrO2 для каркасов на имплантах CAD/CAM
-									li.menu__item #[a(href="") Высокотранслюценный ZrO2 (Prettau) CAD/CAM]
-									li.menu__item #[a(href="") Высокотранслюценный ZrO2 на имплантах (Prettau) CAD/CAM]
-									li.menu__item #[a(href="") Послойноокрашенный  ZrO2 (3D Multilayer) CAD/CAM]
-									li.menu__item #[a(href="") Послойноокрашенный  ZrO2 на имплантах (3D Multilayer) CAD/CAM]
-							li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-								ul.subMenu
-									li.menu__item #[a(href="") ZrO2 для каркасов CAD/CAM]
-									li.menu__item.active ZrO2 для каркасов на имплантах CAD/CAM
-									li.menu__item #[a(href="") Высокотранслюценный ZrO2 (Prettau) CAD/CAM]
-									li.menu__item #[a(href="") Высокотранслюценный ZrO2 на имплантах (Prettau) CAD/CAM]
-							li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-								ul.subMenu
-									li.menu__item #[a(href="") ZrO2 для каркасов CAD/CAM]
-							li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-							li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-							li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-								ul.subMenu
-									li.menu__item #[a(href="") ZrO2 для каркасов CAD/CAM]
-									li.menu__item.active ZrO2 для каркасов на имплантах CAD/CAM
-									li.menu__item #[a(href="") Высокотранслюценный ZrO2 (Prettau) CAD/CAM]
-									li.menu__item #[a(href="") Высокотранслюценный ZrO2 на имплантах (Prettau) CAD/CAM]
-							li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-								ul.subMenu
-									li.menu__item #[a(href="") ZrO2 для каркасов CAD/CAM]
-							li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-							li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-
-			.main
+			include _header
+			include _nav
+			
+			section.main
 				.container
 					.main__inner
-						.main__sidebar
-							ul.menu
-								li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-									ul.subMenu
-										li.menu__item #[a(href="") ZrO2 для каркасов CAD/CAM]
-										li.menu__item.active ZrO2 для каркасов на имплантах CAD/CAM
-										li.menu__item #[a(href="") Высокотранслюценный ZrO2 (Prettau) CAD/CAM]
-										li.menu__item #[a(href="") Высокотранслюценный ZrO2 на имплантах (Prettau) CAD/CAM]
-										li.menu__item #[a(href="") Послойноокрашенный  ZrO2 (3D Multilayer) CAD/CAM]
-										li.menu__item #[a(href="") Послойноокрашенный  ZrO2 на имплантах (3D Multilayer) CAD/CAM]
-								li.menu__item #[span ДИОКСИД ЦИРКОНИЯ ZrO2]
-									ul.subMenu
-										li.menu__item #[a(href="") ZrO2 для каркасов CAD/CAM]
-										li.menu__item.active ZrO2 для каркасов на имплантах CAD/CAM
-										li.menu__item #[a(href="") Высокотранслюценный ZrO2 (Prettau) CAD/CAM]
-										li.menu__item #[a(href="") Высокотранслюценный ZrO2 на имплантах (Prettau) CAD/CAM]
-								li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-									ul.subMenu
-										li.menu__item #[a(href="") ZrO2 для каркасов CAD/CAM]
-								li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-								li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-								li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-									ul.subMenu
-										li.menu__item #[a(href="") ZrO2 для каркасов CAD/CAM]
-										li.menu__item.active ZrO2 для каркасов на имплантах CAD/CAM
-										li.menu__item #[a(href="") Высокотранслюценный ZrO2 (Prettau) CAD/CAM]
-										li.menu__item #[a(href="") Высокотранслюценный ZrO2 на имплантах (Prettau) CAD/CAM]
-								li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-									ul.subMenu
-										li.menu__item #[a(href="") ZrO2 для каркасов CAD/CAM]
-								li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-								li.menu__item #[a(href="") ДИОКСИД ЦИРКОНИЯ ZrO2]
-						.main__content
-							.search
-								input(type="text")
-							ul.photoGallery
-								li
-									img(src="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg", alt="")
-								li
-									img(src="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg", alt="")
-								li
-									img(src="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg", alt="")
-								li
-									img(src="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg", alt="")
+						aside.main__sidebar
+							include _sidebar
+						article.main__content
+							//- include _search
+							.hero
+								img(src="img/hero.jpg", alt="") 
+								p.hero__text ЦИРКОНОВЫЕ КАРКАСЫ #[br]ТИТАНОВЫЕ ОСНОВАНИЯ #[br]АБАТМЕНТЫ 
+									button.hero__btn.js-callback Обратный звонок
+							.content
+								h1 Стоматологическая клиника ValiDent — стремление к совершенству
+								p Один из основных принципов медицины — это постоянное развитие и применение самых современных технологий. Стоматология ValiDent сделала этот принцип основополагающим в своей работе.
+								p ValiDent — это уникальное сочетание работы высококвалифицированных молодых врачей и современного оборудования. Новейшие методы диагностики позволяют разработать для наших клиентов подробный индивидуальный план лечения.
+								p Мы уделяем особое внимание профилактике заболеваний полости рта, поэтому в нашей клинике проводится индивидуальный комплекс SPA-процедур, направленных на поддержание здоровья ваших зубов.
+								p Все наши технологии направлены на улучшение и облегчение процесса лечения. Например, технология ICON от немецкой фирмы DMG позволяет вылечить кариес без сверления, а профессиональная система гигиены Clinpro делает процесс чистки даже самых чувствительных зубов полностью безболезненным.
+								p С помощью собственной 3D-зуботехнической лаборатории CAD/CAM мы производим даже самые сложные ортопедические конструкции. Для нас нет ничего невозможного!
+								h2 Наши главные преимущества
+								ul
+									li современное оборудование;
+									li специалисты с опытом работы более 8 лет;
+									li собственная зуботехническая лаборатория;
+									li отделение детской стоматологии;
+									li отдел косметологии;
+									li индивидуальный комплекс SPA-процедур;
+									li привлекательные цены.
+								h2 Специализация стоматологии на Первомайской
+								p Клиника ValiDent занимается протезированием, устанавливает имплантаты, делает синус-лифтинг, качественно лечит зубы с каналами, безболезненно удаляет зубы любой сложности. Мы успешно исправляем прикус — с помощью брекет-систем и элайнеров Invisalign и 3D Smile. Мы также проводим комплексную профессиональную чистку зубов системами Air Flow, Clinpro и У3.
+								p Особым вниманием и заботой в клинике ValiDent окружены беременные женщины, для них мы разработали особую систему лечения по триместрам.
+								p К каждому пациенту наши врачи находят индивидуальный подход: учитывают свободное время, физиологические особенности, финансовые возможности человека.
+								p  Наши стоматологи — не только профессионалы своего дела, но и просто замечательные люди, общение с которыми помогает посетителям расслабиться и чувствовать себя в клинике комфортно. Многочисленные отзывы благодарных пациентов это подтверждают. Наша клиника — это то, что вам нужно!
 
+							include _gallery
+							include _contacts
 
-
-
+			include _footer
+			
+		script(src="js/lightgallery.min.js")
+		script(src="js/lightslider.min.js")
 		script(src="js/common.js")

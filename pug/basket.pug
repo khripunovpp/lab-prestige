@@ -19,11 +19,14 @@ html
 
 	body
 		.w-page
-			.main
+			include _header
+			include _nav
+			section.main
 				.container
 					.main__inner
-						.main__sidebar
-						.main__content
+						aside.main__sidebar
+							include _sidebar
+						article.main__content
 							form(action="", method="post").basket
 								.basket__step.basket__step--delivery
 									p.basket__step-title Регион доставки
@@ -67,26 +70,12 @@ html
 										p.basket__total Всего на сумму: #[strong #[span.js-basketTotal 0 ] руб.]
 										button.basket__ok(type="button") Оформить заказ
 
-			.response.response--success
-				table.response__wrapper
-					tbody
-						tr
-							td.response__inner
-								.response__box
-									button.response__close
-									p.response__title Ваша заявка принята
-									p.response__text Спасибо за ваше доверие! В ближайшее время мы вам перезвоним.
+			include _footer
 
-			.response.response--error
-				table.response__wrapper
-					tbody
-						tr
-							td.response__inner
-								.response__box
-									button.response__close
-									p.response__title Ошибка
-									p.response__text Что-то пошло не так. Пожалуйста, свяжитесь с нами удобным для вас способом.
-
+									
+		script(src="js/lightgallery.min.js")
+		script(src="js/lightslider.min.js")
+		script(src="js/common.js")
 		
 		script(src="js/basket.js")
 		script(src="js/js.cookie.js")

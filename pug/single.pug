@@ -19,12 +19,17 @@ html
 
 	body
 		.w-page
-			.main
+			include _header
+			include _nav
+			section.main
 				.container
 					.main__inner
-						.main__sidebar
-						.main__content
+						aside.main__sidebar
+							include _sidebar
+						article.main__content
 							button.js-clear очистить
+							include _search
+							h1.main__title ZrO2 для каркасов на имплантах CAD/CAM
 							.case
 								.case__list
 									.case__item.product(data-id="6541561")
@@ -113,27 +118,11 @@ html
 										a(href="basket.html").priceTable__added В корзине
 										button.priceTable__btn Заказать
 
-
-			.addConfirm
-				table.addConfirm__wrapper
-					tbody
-						tr
-							td.addConfirm__inner
-								.addConfirm__box
-									button.addConfirm__close
-									p.addConfirm__title Добавление в корзину
-									.addConfirm__tail
-										.addConfirm__product
-											p.addConfirm__product-category
-											p.addConfirm__product-name
-											p.addConfirm__product-cost.addConfirm__product-cost--stl
-												span.addConfirm__product-cost_type
-												strong.addConfirm__product-cost_price
-												button.addConfirm__product-cost_btn Заказать
-											p.addConfirm__product-cost.addConfirm__product-cost--model
-												span.addConfirm__product-cost_type
-												strong.addConfirm__product-cost_price
-												button.addConfirm__product-cost_btn Заказать
+			include _footer
+			
+		script(src="js/lightgallery.min.js")
+		script(src="js/lightslider.min.js")
+		script(src="js/common.js")
 
 		script(src="js/basket.js")
 		script(src="js/js.cookie.js")
