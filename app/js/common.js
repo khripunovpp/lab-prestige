@@ -1,17 +1,13 @@
-var Util = {
-    randomInteger: function(min, max) {
-        var rand = min + Math.random() * (max - min)
-        rand = Math.round(rand);
-        return rand;
-    },
-    scrollToEl: function(el, offset) {
-        $("html,body").animate({ scrollTop: el.offset().top + (offset || 0) }, 500);
-    },
-    trimString: function(string) {
-        return string.split(' ').join('');
-    }
-}
-
 $(function() {
+    $('.main__sidebar .menu__item').on('click', 'span', function() {
+        $(this).closest('.menu__item').find('ul').slideToggle()
+    });
 
+    $('.search input').on('focus', function() {
+        $(this).closest('.search').addClass('focus')
+    });
+
+     $('.search input').on('blur', function() {
+        if($(this).val().length === 0) $(this).closest('.search').removeClass('focus')
+    });
 });

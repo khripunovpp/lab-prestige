@@ -210,7 +210,7 @@ var basket = {
 
         var activeStep, errors = 0
 
-        setLocation()
+        $('[name="location"]').length > 0 && setLocation()
 
         $(inputs).on('blur', function() {
             removeError($(event.target))
