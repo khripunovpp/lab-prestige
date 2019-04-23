@@ -1,0 +1,273 @@
+.footer
+	padding: 120px 0 60px
+	position: relative
+	&::before
+		content: ''
+		background-image: linear-gradient(to right,  #1f1c63, #5ea6fa)
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 58px
+	&__inner
+		display: flex
+		justify-content: space-between
+	&__logo
+		max-width: 250px
+		position: relative
+		top: -25px
+	&__disclamer
+		margin: 80px 0 0
+		font-size: 15px
+		color: #bcbcbc
+		text-align: center
+	&__menu
+		ul
+			li
+				display: block
+			li+li
+				margin-top: 10px
+			a
+				text-decoration: none
+				color: #000
+				font-weight: 500
+				font-size: 15px
+				line-height: 1
+				&:hover
+					text-decoration: underline
+	&__additional
+		max-width: 250px
+		&-caption
+			margin: 0 0 5px
+			font-weight: 600
+			color: #303030
+		ul
+			li
+				display: block
+			a
+				text-decoration: none
+				color: inherit
+				&:hover
+					text-decoration: underline
+	&__payments
+		margin-top: 50px
+		&-caption
+			margin: 0 0 5px
+			font-weight: 600
+			color: #303030
+		&-text
+			margin: 0
+		&-icons
+			margin: 25px 0 10px
+			i
+				display: inline-block
+				font-size: 40px
+				line-height: 1
+				&::before
+					@extend %icon
+				&:nth-child(1)::before
+					content: '\e90b'
+				&:nth-child(2)::before
+					content: '\e90a'
+				&:nth-child(3)::before
+					content: '\e909'
+				&:nth-child(4)::before
+					content: '\e908'
+			i+i
+				margin-left: 5px
+		&-credit
+			color: #3a5ca4
+			text-decoration: none
+			font-size: 18px
+			font-weight: 500
+			&:hover
+				text-decoration: underline
+	&__contacts
+		text-align: right
+		white-space: nowrap
+		&-phone
+			font-size: 26px
+			color: inherit
+			text-decoration: none
+			&:hover
+				color: #3a5ca4
+		&-hours
+			color: #999
+			margin: 0
+		&-address
+			margin-top: 8px
+			p
+				line-height: 1.6
+				margin: 0
+				font-weight: 500
+				color: #333
+		&-btn
+			margin-top: 10px
+
+
+.overlay
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 7
+	background-color: rgba(0, 0, 0, 0.3)
+
+.callback,
+.registration
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 8
+	overflow: auto
+	display: none
+	text-align: left
+	&__wrapper
+		height: 100%
+		width: 100%
+	&__inner
+		vertical-align: middle
+		padding: 15px
+	&__box
+		background-color: #fafafa
+		width: 100%
+		max-width: 500px
+		position: relative
+		overflow: hidden
+		margin: 0 auto
+		padding: 15px 20px 20px 
+		border-radius: 3px
+	&__close
+		position: absolute
+		top: 8px
+		right: 5px
+		border: none
+		background: transparent
+		cursor: pointer
+		outline: none
+		opacity: .5
+		&:before
+			@extend %icon
+			content: '\e90e'
+			width: 15px
+			height: 15px
+			top: 6px
+			left: 0
+		&:hover
+			opacity: 1
+	&__title
+		text-transform: uppercase
+		font-size: 25px
+		margin: 0
+		color: #3a5ca4
+		font-weight: 500
+	&__text
+		margin: 0
+	&__tail
+		margin: 20px 0 20px -40px
+		transform: translate(20px)
+		border-left: 3px solid #3a5ca4
+		border-right: 3px solid #3a5ca4
+		padding: 25px 17px
+		background-color: #ececec
+	&__group
+		position: relative
+		&+&
+			margin-top: 20px
+	&__label
+		font-size: 14px
+		color: #555
+		position: absolute
+		top: 10px
+		left: 15px
+		cursor: pointer
+		strong
+			color: #ff0000
+	&__field
+		background-color: #fff
+		border: none
+		width: 100%
+		border-radius: 3px
+		padding: 10px 15px
+		font-size: 16px
+	&__submit
+		display: table
+		margin: 0 auto
+		background-color: #5283c5
+		cursor: pointer
+		padding: 10px 25px
+		font-size: 16px
+		color: #fff
+		border: none
+		border-radius: 6px
+		&:hover
+			background-color: darken(#5283c5, 15)
+
+
+
+
+.pbm
+	position: fixed
+	bottom: 50px
+	right: 50px
+	background-color: #34c153
+	width: 70px
+	height: 70px
+	border-radius: 50%
+	border: none
+	box-shadow: 0 0 5px 15px rgba(#34c153, .2)
+	cursor: pointer
+	color: #fff
+	font-size: 35px
+	animation: call 1.8s infinite ease-in-out
+	&::after
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		width: 70px
+		height: 70px
+		border: 1px solid #34c153
+		border-radius: 50%
+		animation: pulse 1s linear .4s infinite
+	&::before
+		content: '\e90f'
+		@extend %icon
+		position: relative
+		top: 4px
+		left: -1px
+
+@keyframes call
+	0%,
+	100%,
+	50%
+		transform: rotate(0)
+	10%,
+	20%
+		transform: rotate(8deg)
+
+	15%
+		transform: rotate(-6deg)
+
+	25%
+		transform: rotate(-10deg)
+
+	30%,
+	40%
+		transform: rotate(6deg)
+	35%,
+	45%
+		transform: rotate(-4deg)
+
+
+@keyframes pulse
+	from
+		transform: scale(1)
+		opacity: .6
+
+	to
+		transform: scale(1.5)
+		opacity: 0

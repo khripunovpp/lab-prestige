@@ -1,0 +1,171 @@
+.header
+	position: relative
+	z-index: 2
+	background-color: #fff
+	&::before
+		content: ''
+		width: 100%
+		height: 4px
+		position: absolute
+		left: 0
+		background-color: #1f1c63
+		background-image: linear-gradient(to left,  #1f1c63, #5ea6fa)
+	&::before
+		top: 0
+	&__inner
+		display: flex
+		align-items: center
+		justify-content: space-between
+		padding: 18px 0 15px
+	&__logo
+		max-width: 250px
+	&__contacts
+		display: flex
+		align-items: center
+		justify-content: space-between
+	&__phone
+		text-align: right
+		white-space: nowrap
+		margin-left: 15px
+		a
+			font-size: 26px
+			display: block
+			color: inherit
+			text-decoration: none
+			&:hover
+				color: #3a5ca4
+		p
+			margin: 0
+			color: #999
+	&__address
+		line-height: 1.6
+		p
+			margin: 0
+
+.lk
+	&__item
+		display: block
+		color: inherit
+		text-decoration: none
+		line-height: 1
+		font-size: 13px
+		padding: 0
+		background-color: transparent
+		border: none
+		cursor: pointer
+		&+&
+			margin-top: 10px
+		&:hover
+			text-decoration: underline
+		&::before
+			@extend %icon
+			font-size: 15px
+			position: relative
+			top: 2px
+			margin-right: 5px
+			color: #1f1c63
+			display: inline-block
+		&--lk::before
+			content: '\e902'
+		&--reg::before
+			content: '\e903'
+		&--basket::before
+			content: '\e904'
+
+
+.nav
+	opacity: .99
+	position: relative
+	z-index: 1
+	box-shadow: 0 5px 15px rgba(0,0,0,.2)
+	&::before
+		content: ''
+		background-image: linear-gradient(to right,  #1f1c63, #5ea6fa)
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+	&__inner
+		display: flex
+		justify-content: space-between
+		align-content: center
+		position: relative
+		z-index: 5
+		padding: 4px 0
+	&__item
+		color: #fff
+		text-decoration: none
+		font-size: 20px
+		line-height: 1
+		font-weight: 300
+		padding-bottom: 3px
+		transition: all .2s
+		padding: 15px 10px
+		&--hasSubMenu
+			position: relative
+			margin-left: 35px
+			&::before
+				content: '\e906'
+				@extend %icon
+				position: absolute
+				left: -35px
+				color: #fff
+		&:hover
+			background-color: #fff
+			color: #3a5ca4
+	&__menu
+		position: absolute
+		z-index: -1
+		top: 100%
+		left: 0
+		width: 100%
+		background-color: #fff
+		transform: translateY(-115%)
+		transition: all .2s ease-out
+		box-shadow: 0 5px 15px rgba(0,0,0,.2)
+		&::after
+			content: ''
+			position: absolute
+			bottom: 0
+			left: 0
+			width: 100%
+			height: 4px
+			background-image: linear-gradient(to right,  #1f1c63, #5ea6fa)
+		.menu
+			max-width: 1170px
+			background-color: transparent
+			margin: 0 auto
+			columns: 3
+			&__item
+				ul
+					display: block
+	&.showSub
+		.nav__menu
+			transform: translateY(0)
+
+.menu
+	background-color: #f2f6fb
+	padding: 15px 15px 23px
+	&__item
+		color: #000
+		font-weight: 700
+		position: relative
+		margin-top: 8px
+		a
+			text-decoration: none
+			color: inherit
+			&:hover
+				color: #5ea6fa
+		ul
+			display: none
+		span
+			cursor: pointer
+		.menu__item
+			font-weight: 400
+			width: 100%
+		&.active
+			color: #5ea6fa
+			font-weight: 700
+			ul
+				display: block

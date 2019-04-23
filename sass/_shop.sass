@@ -348,6 +348,7 @@
 		
 
 .priceTable
+	margin: 30px 0
 	display: flex
 	flex-direction: column
 	&__row
@@ -359,6 +360,8 @@
 		align-items: stretch
 		display: flex
 		position: relative
+		& *:last-child
+			border-radius: 0 6px 6px 0
 		&:hover
 			.priceTable__name
 				background-color: darken(#d3eafa, 5)
@@ -387,7 +390,6 @@
 		display: table-cell
 		vertical-align: top
 		background-color: #d3eafa
-		border-radius: 6px
 		padding: 8px 10px
 		text-align: center
 		font-size: 18px
@@ -403,6 +405,7 @@
 		display: flex
 		flex-direction: column
 		margin-left: 4px
+		justify-content: stretch
 		width: 50%
 	&__name
 		font-size: 16px
@@ -410,37 +413,41 @@
 		justify-content: flex-start
 		text-align: left
 		width: 50%
+		border-radius: 6px
 	&__priceType
 		font-size: 12px
 		font-weight: 500
 	&__cost
 		display: flex
+		height: 100%
 		&+&
 			margin-top: 4px
 		&:hover
 			.priceTable__priceType,
 			.priceTable__price
 				background-color: darken(#d3eafa, 5)
+		& *:first-child
+			border-radius: 6px 0 0 6px
+		& *:last-child
+			border-radius: 0 6px 6px 0
 	&__btn
 		width: 130px
 		border: none
 		padding: 5px 10px
-		border-radius: 6px
 		margin-left: 4px
 		vertical-align: middle
 		font-size: 16px
 		font-weight: 700
 		color: #fff
-		background-color: #5ea1d9
+		background-color: #5283c5
 		cursor: pointer
 		transition: all .2s
 		&:hover
-			background-color: darken(#4577ba, 20)
+			background-color: darken(#5283c5, 20)
 	&__added
 		width: 130px
 		border: none
 		padding: 5px 10px
-		border-radius: 6px
 		margin-left: 4px
 		vertical-align: middle
 		font-size: 16px
@@ -482,10 +489,13 @@
 		color: #fff
 		font-weight: 700
 		font-size: 17px
-		background-color: #4577ba
+		background-color: darken(#5283c5, 18)
 		text-align: center
 		padding: 8px 10px
 		border-radius: 6px
+		strong
+			opacity: .8
+			font-weight: 500
 
 
 .response

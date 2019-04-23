@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900">
+    <link rel="stylesheet" href="css/lightgallery.min.css">
+    <link rel="stylesheet" href="css/lightslider.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
       *,
@@ -42,7 +44,7 @@
       </header>
       <nav class="nav">
         <div class="container">
-          <div class="nav__inner"><a class="nav__item nav__item--hasSubMenu" href="">Услуги и цены</a><a class="nav__item" href="">Наши работы</a><a class="nav__item" href="">Список систем</a><a class="nav__item" href="">Наше оборудование</a><a class="nav__item" href="">Контакты</a></div>
+          <div class="nav__inner"><a class="nav__item nav__item--hasSubMenu" href="">Услуги и цены</a><a class="nav__item" href="">Наши работы</a><a class="nav__item" href="list.html">Список систем</a><a class="nav__item" href="">Наше оборудование</a><a class="nav__item" href="contacts.html">Контакты</a></div>
           <div class="nav__menu"></div>
         </div>
       </nav>
@@ -86,9 +88,11 @@
               </ul>
             </aside>
             <article class="main__content">
+              <button class="js-clear">очистить</button>
               <div class="search">
                 <input type="text" placeholder="Введите название или артикул товара">
               </div>
+              <h1 class="main__title">ZrO2 для каркасов на имплантах CAD/CAM</h1>
               <div class="case">
                 <div class="case__list">
                   <div class="case__item product" data-id="6541561"><a class="product__check" href="basket.html" title="Просмотреть корзину">В корзине</a>
@@ -172,8 +176,19 @@
                         <div class="priceTable__price">43534 руб.</div>
                         <button class="priceTable__btn">Заказать</button>
                       </div>
-                    </div><a class="priceTable__added" href="basket.html">В корзине</a>
-                    <button class="priceTable__delete" title="Удалить из корзины"></button>
+                    </div>
+                    <button class="priceTable__delete" title="Удалить из корзины"></button><a class="priceTable__added" href="basket.html">В корзине</a>
+                  </div>
+                  <div class="priceTable__row" data-id="nzf">
+                    <div class="priceTable__name">Zimmer, Mis, AlphaBio, Adin, BioGorizont, Conmet</div>
+                    <div class="priceTable__order">
+                      <div class="priceTable__cost">
+                        <div class="priceTable__priceType">С уровня модели</div>
+                        <div class="priceTable__price">43534 руб.</div>
+                        <button class="priceTable__btn">Заказать</button>
+                      </div>
+                    </div>
+                    <button class="priceTable__delete" title="Удалить из корзины"></button><a class="priceTable__added" href="basket.html">В корзине</a>
                   </div>
                   <div class="priceTable__row" data-id="hzdfbz">
                     <div class="priceTable__name">Индивидуальный абатмент ZrO2 Prettau на титановом основании</div>
@@ -188,8 +203,71 @@
                         <div class="priceTable__price">345 руб.</div>
                         <button class="priceTable__btn">Заказать</button>
                       </div>
-                    </div><a class="priceTable__added" href="basket.html">В корзине</a>
-                    <button class="priceTable__delete" title="Удалить из корзины"></button>
+                    </div>
+                    <button class="priceTable__delete" title="Удалить из корзины"></button><a class="priceTable__added" href="basket.html">В корзине</a>
+                  </div>
+                </div>
+              </div>
+              <div class="priceTable">
+                <div class="priceTable__category">Система имплантов <strong>(<span class="priceTable__category-priceType">с уровня модели</span>)</strong></div>
+                <div class="priceTable__body">
+                  <div class="priceTable__row" data-id="nzf">
+                    <div class="priceTable__name">Zimmer, Mis, AlphaBio, Adin, BioGorizont, Conmet</div>
+                    <div class="priceTable__order">
+                      <div class="priceTable__cost">
+                        <div class="priceTable__price">1500 руб.</div>
+                        <button class="priceTable__btn">Заказать</button>
+                      </div>
+                    </div>
+                    <button class="priceTable__delete" title="Удалить из корзины"></button><a class="priceTable__added" href="basket.html">В корзине</a>
+                  </div>
+                  <div class="priceTable__row" data-id="hzdfbz">
+                    <div class="priceTable__name">Индивидуальный абатмент ZrO2 Prettau на титановом основании</div>
+                    <div class="priceTable__order">
+                      <div class="priceTable__cost">
+                        <div class="priceTable__priceType">По STL файлу</div>
+                        <div class="priceTable__price">1500 руб.</div>
+                        <button class="priceTable__btn">Заказать</button>
+                      </div>
+                    </div>
+                    <button class="priceTable__delete" title="Удалить из корзины"></button><a class="priceTable__added" href="basket.html">В корзине</a>
+                  </div>
+                  <div class="priceTable__row" data-id="hzdfbz">
+                    <div class="priceTable__name">Индивидуальный абатмент ZrO2 Prettau на титановом основании</div>
+                    <div class="priceTable__order">
+                      <div class="priceTable__cost">
+                        <div class="priceTable__price">1500 руб.</div>
+                        <button class="priceTable__btn">Заказать</button>
+                      </div>
+                    </div>
+                    <button class="priceTable__delete" title="Удалить из корзины"></button><a class="priceTable__added" href="basket.html">В корзине</a>
+                  </div>
+                </div>
+              </div>
+              <ul class="photoGallery">
+                <li data-thumb="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg" data-src="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg"><img src="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg" alt=""></li>
+                <li data-thumb="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg" data-src="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg"><img src="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg" alt=""></li>
+                <li data-thumb="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg" data-src="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg"><img src="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg" alt=""></li>
+                <li data-thumb="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg" data-src="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg"><img src="http://valident.ru/wp-content/uploads/2018/07/stomatologiya_valident-_29_.jpg" alt=""></li>
+              </ul>
+              <div class="contacts">
+                <div class="contacts__head">
+                  <div class="contacts__photo" style="background-image: url(img/contacts-pic.jpg)"></div>
+                  <div class="contacts__map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5334.899848683421!2d37.78928104803808!3d55.79238567453288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b534d3ab6fa24b%3A0xae38f72a6ddb8077!2z0YPQuy4g0J_QtdGA0LLQvtC80LDQudGB0LrQsNGPLCA2MCDQutC-0YDQv9GD0YEgMSwg0JzQvtGB0LrQstCwLCAxMDUwNDM!5e0!3m2!1sru!2sru!4v1527699627329" width="100%" height="280" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                  </div>
+                </div>
+                <div class="contacts__body"><span class="contacts__caption">Контактные данные</span>
+                  <div class="contacts__left">
+                    <ul class="contacts__list">
+                      <li class="contacts__item contacts__item--address"><span class="contacts__term">Адрес:</span><span class="contacts__desc">ул.Первомайская, д.60, к.1 </span><span class="contacts__desc">ул.Первомайская, д.60, к.1</span></li>
+                      <li class="contacts__item"><span class="contacts__term">Телефон:</span><a class="contacts__desc" id="comagic_phone2" href="tel:+74952660607">+ 7 (495) 266 06 07</a></li>
+                      <li class="contacts__item"><span class="contacts__term">E-mail:</span><a class="contacts__desc" href="mailto:clinic@valident.ru">clinic@valident.ru</a></li>
+                      <li class="contacts__item"><span class="contacts__term">Время работы:</span><span class="contacts__desc">10:00-21:00, СБ-ВС 10:00-20:00</span></li>
+                    </ul>
+                  </div>
+                  <div class="contacts__right">
+                    <button class="contacts__btn btn js-callback">Обратный звонок</button>
                   </div>
                 </div>
               </div>
@@ -321,6 +399,7 @@
           </tbody>
         </table>
       </div>
+      <button class="pbm js-callback"></button>
     </div>
     <script src="js/lightgallery.min.js"></script>
     <script src="js/lightslider.min.js"></script>

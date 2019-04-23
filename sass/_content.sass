@@ -1,0 +1,180 @@
+.hero
+	position: relative
+	img
+		display: block
+		width: 100%
+	&__text
+		text-transform: uppercase
+		color: #fff
+		position: absolute
+		top: 15px
+		left: 15px
+		margin: 0
+		text-align: center
+		font-size: 25px
+		line-height: 1.2
+		font-weight: 500
+	&__btn
+		background-color: transparent
+		display: table
+		margin: 15px auto 0
+		color: #5cb2e0
+		border: 2px solid #2a9bd7
+		cursor: pointer
+		transition: all .2s
+		border-radius: 50px
+		padding: 9px 20px
+		font-size: 16px
+		&:hover
+			transform: scale(1.1)
+			background-color: #2a9bd7
+			color: #fff
+
+.content
+	margin: 30px 0
+	h1
+		font-size: 24px
+		text-transform: uppercase
+		margin: 0 0 15px
+	ul
+		list-style-type: disc
+		list-style-position: inside
+		margin-left: 15px
+
+.search
+	border: 1px solid #eee
+	border-radius: 50px
+	overflow: hidden
+	position: relative
+	transition: all .2s
+	box-shadow: 0 0 0 transparent
+	margin-bottom: 20px
+	&::before
+		content: '\e907'
+		@extend %icon
+		font-size: 20px
+		color: #1f1c63
+		position: absolute
+		top: 8px
+		left: 12px
+		transition: all .2s
+		opacity: .5
+	input
+		width: 100%
+		border: none
+		padding: 10px 15px 10px 45px
+		margin: 0
+	&.focus
+		box-shadow: 0 0 10px rgba(0,0,0,.05)
+		&::before
+			opacity: 1
+
+.intro
+	display: flex
+	justify-content: center
+	align-items: flex-start
+	margin-bottom: 30px
+	&__pic
+		max-width: 30%
+		min-width: 270px
+	&__info
+		padding-left: 30px
+		position: relative
+		top: -7px
+	&__title
+		font-size: 24px
+		margin: 0
+		color: #000
+	&__disclamer
+		font-size: 15px
+		color: #a0a0a0
+		border-left: 2px solid #ddd
+		padding-left: 15px
+
+.photoGallery
+	font-size: 0
+	img
+		height: 200px
+
+.contacts
+	margin: 30px 0
+	background-color: #f8f8f8
+	&__head
+		display: table
+		table-layout: fixed
+		width: 100%
+		font-size: 0
+	&__photo
+		background-image: url(img/map.jpg)
+		background-size: cover
+		display: table-cell
+		vertical-align: top
+	&__map
+		display: table-cell
+		vertical-align: top
+	&__body
+		padding: 25px
+		overflow: auto
+	&__caption
+		display: block
+		font-size: 24px
+		font-weight: 700
+		text-transform: uppercase
+		margin: 10px 0 20px
+	&__left
+		width: 60%
+		float: left
+	&__right
+		width: 40%
+		text-align: right
+		float: right
+		position: relative
+	&__list
+		list-style-type: none
+		margin: 0
+		padding: 0
+	&__item
+		margin-bottom: 15px
+		font-size: 16px
+		a
+			&:hover
+				color: #3a5ca4
+		&:last-child
+			margin-bottom: 0
+		&--address
+			.contacts__desc
+				display: block
+	&__term
+		text-transform: uppercase
+		margin-right: 8px
+	&__desc
+		font-weight: 700
+		color: inherit
+		text-decoration: none
+
+.list
+	margin: 0 0 30px
+	ul
+		display: flex
+		flex-flow: row wrap
+		margin-right: -4px
+	li
+		width: calc(33.3333% - 4px)
+		margin: 4px 4px 0 0
+		border-radius: 3px
+		background-color: #d3eafa
+		text-align: center
+		padding: 8px 10px
+		font-weight: 500
+		font-size: 16px
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		& *
+			display: block
+			font-size: 13px
+			font-style: normal
+			font-weight: 400
+			line-height: 1
+			margin: 2px 0 0
