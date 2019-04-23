@@ -27,9 +27,8 @@ html
 						aside.main__sidebar
 							include _sidebar
 						article.main__content
-							button.js-clear очистить
+							//- button.js-clear очистить
 							include _search
-							h1.main__title ZrO2 для каркасов на имплантах CAD/CAM
 							.case
 								.case__list
 									.case__item.product(data-id="6541561")
@@ -77,46 +76,74 @@ html
 										img.product__pic(src="img/pic-3.jpg", alt="")
 										p.product__name Каркас мостовидного протеза, протяженностью до 6 ед.
 										p.product__cost
-											span.product__cost-type По STL файлу
 											strong.product__cost-price 600 руб.
 											button.product__cost-btn Заказать
-										p.product__cost
-											span.product__cost-type С уровня модели
-											strong.product__cost-price 900 руб.
-											button.product__cost-btn Заказать
+							br
+							br
+							br
+							br
+							hr
+							| шаблон второго типа страниц
+							hr
+							br
+							br
+							br
+							br
+							.intro
+								img(src="img/pic-1.jpg", alt="").intro__pic
+								.intro__info
+									h1.intro__title Индивидуальные Абатменты из Титана (Ti) на имплантах CAD/CAM
+									p.intro__disclamer * В стоимость входит имплант+формирователь десны+индивидуальный абатмент+коронка из циркония. #[br]Срок службы зубных имплантов более 25 лет. Приживаемость 97%
+							.content
+								p На сегодняшний день проблема отсутствия одного или нескольких зубов решается современными методами. Большинство людей, испытывающих данную эстетическую проблему, отдают предпочтение такому методу, как имплантация. Передовые технологии позволяют применять коронки и восстанавливать зубной корень с применением титанового штифта небольшого диаметра. Отметим, что потеря зуба может привести к нарушению жевательной функции. Нарушается работа пищеварительной системы, что негативно сказывается на общем состоянии пациента.
 
+								p Наша стоматологическая клиника работает с имплантами от передовых мировых производителей.
+
+								p В первую очередь это зубные элементы от шведской компании Astra Tech. Имплант относится к премиум-классу. По уровню продаж он входит в тройку лучших во всем мире.
+
+								p Основные преимущества:
+
+								ul
+									li использование чистого металла титана без примесей гарантирует практически 100% приживаемость;
+									li при соблюдении гигиены полости рта срок эксплуатации составляет 30-40 лет;
+									li производитель выдает пожизненную гарантию на свою продукцию.
+									li Работаем мы и с корейским производителем Dentium SuperLine, Osstem Premium. Этот имплант можно считать качественным и бюджетным.
+
+								p Выделим следующие преимущества:
+
+								ul
+									li минимальный уровень травматичности во время установки;
+									li плоское основание под имплант надежно защищает от инфицирования;
+									li теперь распределение жевательной нагрузки происходит равномерно по всему зубному ряду.
 							.priceTable
-								.priceTable__head
-									.priceTable__row
-										.priceTable__category Система имплантов
-										.priceTable__costType.priceTable__costType--stl По STL файлу
-										.priceTable__costType.priceTable__costType--model С уровня модели
-										.priceTable__cell
+								.priceTable__category Система имплантов
 								.priceTable__body
 									.priceTable__row(data-id="nzf")
-										.priceTable__name Zimmer,Mis, AlphaBio, Adin, BioGorizont, Conmet
-										.priceTable__price.priceTable__price--stl 1100 руб.
-										.priceTable__price.priceTable__price--model 1835 руб.
+										.priceTable__name Zimmer, Mis, AlphaBio, Adin, BioGorizont, Conmet
+										.priceTable__order
+											.priceTable__cost
+												.priceTable__priceType По STL файлу
+												.priceTable__price 1500 руб.
+												button.priceTable__btn Заказать
+											.priceTable__cost
+												.priceTable__priceType С уровня модели
+												.priceTable__price 43534 руб.
+												button.priceTable__btn Заказать
 										a(href="basket.html").priceTable__added В корзине
-										button.priceTable__btn Заказать
-									.priceTable__row(data-id="dfbdfb")
-										.priceTable__name Niko 
-										.priceTable__price.priceTable__price--stl 1100 руб.
-										.priceTable__price.priceTable__price--model 1500 руб.
+										button.priceTable__delete(title="Удалить из корзины")
+									.priceTable__row(data-id="hzdfbz")
+										.priceTable__name Индивидуальный абатмент ZrO2 Prettau на титановом основании
+										.priceTable__order
+											.priceTable__cost
+												.priceTable__priceType По STL файлу
+												.priceTable__price 1500 руб.
+												button.priceTable__btn Заказать
+											.priceTable__cost
+												.priceTable__priceType С уровня модели
+												.priceTable__price 345 руб.
+												button.priceTable__btn Заказать
 										a(href="basket.html").priceTable__added В корзине
-										button.priceTable__btn Заказать
-									.priceTable__row(data-id="q3r2YHRB")
-										.priceTable__name Ankylos
-										.priceTable__price.priceTable__price--stl 1100 руб.
-										.priceTable__price.priceTable__price--model 1500 руб.
-										a(href="basket.html").priceTable__added В корзине
-										button.priceTable__btn Заказать
-									.priceTable__row(data-id="UKMSW5UAT")
-										.priceTable__name Nobel Replace, Nobel Active,Xive, Astra tech, BegoSemados, IСX 
-										.priceTable__price.priceTable__price--stl 1100 руб.
-										.priceTable__price.priceTable__price--model 1500 руб.
-										a(href="basket.html").priceTable__added В корзине
-										button.priceTable__btn Заказать
+										button.priceTable__delete(title="Удалить из корзины")
 
 			include _footer
 			

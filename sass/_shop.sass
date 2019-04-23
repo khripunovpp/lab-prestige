@@ -358,23 +358,32 @@
 		justify-content: stretch
 		align-items: stretch
 		display: flex
-		&.added
-			.priceTable__added
-				display: table-cell
-				display: flex
-			.priceTable__btn
-				display: none
+		position: relative
 		&:hover
-			.priceTable__name,
-			.priceTable__price
+			.priceTable__name
 				background-color: darken(#d3eafa, 5)
+		&.added
+			.priceTable
+				&__added
+					display: flex
+				&__btn
+					display: none
+				&__name,
+				&__price,
+				&__priceType
+					background-color: #d3eafa !important
+				&__order
+					width: calc(50% - 134px)
+			&:hover
+				.priceTable__delete
+					visibility: visible
+					opacity: 1
+					transform: translateX(0)
 		&+&
 			margin-top: 4px
-	&__cell,
-	&__costType,
-	&__price,
 	&__name,
-	&__category
+	&__priceType,
+	&__price
 		display: table-cell
 		vertical-align: top
 		background-color: #d3eafa
@@ -383,22 +392,37 @@
 		text-align: center
 		font-size: 18px
 		font-weight: 700
-		flex: 1
 		display: flex
+		flex: 1
 		justify-content: center
 		align-items: center
 		transition: all .2s
 		&+&
 			margin-left: 4px
-		&:first-child
-			text-align: left
-			width: 50%
-			flex: 3
-			justify-content: flex-start
-			font-size: 16px
-			font-weight: 300
+	&__order
+		display: flex
+		flex-direction: column
+		margin-left: 4px
+		width: 50%
+	&__name
+		font-size: 16px
+		font-weight: 500
+		justify-content: flex-start
+		text-align: left
+		width: 50%
+	&__priceType
+		font-size: 12px
+		font-weight: 500
+	&__cost
+		display: flex
+		&+&
+			margin-top: 4px
+		&:hover
+			.priceTable__priceType,
+			.priceTable__price
+				background-color: darken(#d3eafa, 5)
 	&__btn
-		flex: 1
+		width: 130px
 		border: none
 		padding: 5px 10px
 		border-radius: 6px
@@ -413,7 +437,7 @@
 		&:hover
 			background-color: darken(#4577ba, 20)
 	&__added
-		flex: 1
+		width: 130px
 		border: none
 		padding: 5px 10px
 		border-radius: 6px
@@ -429,115 +453,39 @@
 		text-decoration: none
 		&:hover
 			text-decoration: underline
-	&__head
-		margin-bottom: 4px
-		.priceTable
-			&__cell,
-			&__costType,
-			&__price,
-			&__name,
-			&__category
-				text-align: center
-				color: #fff
-				font-weight: 700
-				font-size: 17px
-				background-color: #4577ba
-				justify-content: center
-				&:last-child
-					background-color: transparent
-
-
-.addConfirm
-	position: fixed
-	top: 0
-	left: 0
-	width: 100%
-	height: 100%
-	z-index: 8
-	overflow: auto
-	display: none
-	&__wrapper
-		height: 100%
-		width: 100%
-	&__inner
-		vertical-align: middle
-		padding: 15px
-	&__box
-		background-color: #fff
-		width: 100%
-		max-width: 570px
-		position: relative
-		overflow: hidden
-		margin: 0 auto
-		text-align: center
-	&__close
+	&__delete
 		position: absolute
-		top: 15px
-		right: 15px
-		width: 20px
-		height: 20px
-		padding: 0
-		border: none
-		background-color: transparent
-		background-image: url(../img/icon-close-response.png)
+		visibility: hidden
+		left: 100%
+		top: 0
+		height: 100%
+		transition: all .2s
 		cursor: pointer
-	&__title
-		background-color: #ebebeb
-		padding: 15px
-		margin: 0
-		font-size: 18px
-		font-weight: 500
-	&__tail
-		padding: 35px
-	&__product
-		overflow: hidden
-		text-align: center
-		&-category
-			margin: 0 0 5px
-			color: #333
-		&-name
-			margin-bottom: auto
+		text-decoration: none
+		border: none
+		color: #ff4343
+		padding: 0
+		width: 35px
+		background-color: transparent
+		transform: translateX(-100px)
+		opacity: 0
+		&::before
+			content: '\e901'
+			@extend %icon
 			font-size: 20px
-			padding: 0 10px
-			margin: 0 0 25px
-			color: #000
-			font-weight: 500
-		&-cost
-			margin: 5px 10px 0
-			display: inline-block
-			&_type
-				color: #727273
-				font-size: 13px
-				margin: 0 0 4px
-				display: block
-			&_price
-				background-color: #354f99
-				background-image: linear-gradient(to right, #2b2e7c, #508dcb)
-				font-size: 16px
-				color: #fff
-				text-transform: uppercase
-				border-radius: 3px
-				padding: 2px 8px
-				display: inline-block
-				vertical-align: middle
-			&_btn
-				color: #3a5ca4
-				background-color: transparent
-				border: 1px solid
-				border-radius: 3px
-				font-size: 13px
-				padding: 4px 8px
-				display: inline-block
-				vertical-align: middle
-				cursor: pointer
-				font-weight: 500
-				&:hover
-					background-color: #528fcd
-					color: #fff
-					border-color: #528fcd
-
-
-
+			line-height: 35px
+		&:hover
+			color: darken(#ff4343, 25)
+	&__category
+		margin-bottom: 4px
+		text-align: center
+		color: #fff
+		font-weight: 700
+		font-size: 17px
+		background-color: #4577ba
+		text-align: center
+		padding: 8px 10px
+		border-radius: 6px
 
 
 .response

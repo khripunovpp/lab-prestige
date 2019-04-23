@@ -44,16 +44,12 @@ var basket = {
 
         _that._update()
 
-        $('body').on('click', '.product:not(.added) .product__cost-btn, .addConfirm__product-cost_btn', function(e) {
+        $('body').on('click', '.product:not(.added) .product__cost-btn, .priceTable__row:not(.added) .priceTable__btn', function(e) {
             _that._add.call(_that, e)
             _that.confrimPopup.hide()
         })
 
-        $('body').on('click', '.priceTable__row:not(.added) .priceTable__btn', function(e) {
-            _that._addConfirm.call(_that, e)
-        })
-
-        $('body').on('click', '.product__delete, .basket__item-delete', function(e) {
+        $('body').on('click', '.product__delete, .basket__item-delete, .priceTable__delete', function(e) {
             _that._removeItem.call(_that, e)
         });
 
@@ -69,27 +65,17 @@ var basket = {
         var target = $(event.target),
             product, cost, price, name, costType, quantity, thumb;
 
-        if (target.hasClass('addConfirm__product-cost_btn')) {
-            product = target.closest('.addConfirm__product')
-            id = product.attr('data-id')
-            name = product.find('.addConfirm__product-name').text()
-            costType = target.closest('.addConfirm__product-cost').find('.addConfirm__product-cost_type').text()
-            price = target.closest('.addConfirm__product-cost').find('.addConfirm__product-cost_price').text()
-            price = price.substring(0, price.length - 5)
-            thumb = null
-            quantity = 1
-        } else {
-            product = $(event.target).closest('.product')
 
-            id = product.attr('data-id')
-            cost = $(event.target).closest('.product__cost')
-            price = cost.find('.product__cost-price').text()
-            name = product.find('.product__name').text()
-            costType = cost.find('.product__cost-type').text()
-            price = price.substring(0, price.length - 5)
-            thumb = product.find('.product__pic').attr('src')
-            quantity = 1
-        }
+        product = $(event.target).closest('.product, .priceTable__row')
+
+        id = product.attr('data-id')
+        cost = $(event.target).closest('.product__cost, .priceTable__cost')
+        price = cost.find('.product__cost-price, .priceTable__price').text()
+        name = product.find('.product__name, .priceTable__name').text()
+        costType = cost.find('.product__cost-type, .priceTable__priceType').text()
+        price = price.substring(0, price.length - 5)
+        thumb = product.find('.product__pic').attr('src')
+        quantity = 1
 
         product.addClass('added')
 
@@ -97,42 +83,13 @@ var basket = {
             id: id,
             quantity: quantity,
             name: name,
-            costType: costType,
+            costType: costType || null,
             price: price,
-            thumb: thumb
+            thumb: thumb || null
         }
 
         _that._addBasket(item)
 
-    },
-    _addConfirm: function(event) {
-        var _that = this
-
-        var product = $(event.target).closest('.priceTable__row')
-
-        var id = product.attr('data-id'),
-            name = product.find('.priceTable__name').text(),
-            costTypeStl = $('.priceTable__costType--stl').text(),
-            costTypeModel = $('.priceTable__costType--model').text(),
-            priceStl = product.find('.priceTable__price--stl').text(),
-            priceModel = product.find('.priceTable__price--model').text(),
-            category = $('.priceTable__category').text();
-
-        var costTypeStlEl = _that.confrimPopup.find('.addConfirm__product-cost--stl'),
-            costTypeModellEl = _that.confrimPopup.find('.addConfirm__product-cost--model');
-
-        _that.confrimPopup.find('.addConfirm__product').attr('data-id', id)
-
-        _that.confrimPopup.find('.addConfirm__product-name').text(name)
-        _that.confrimPopup.find('.addConfirm__product-category').text(category)
-
-        costTypeStlEl.find('.addConfirm__product-cost_type').text(costTypeStl)
-        costTypeStlEl.find('.addConfirm__product-cost_price').text(priceStl)
-
-        costTypeModellEl.find('.addConfirm__product-cost_type').text(costTypeModel)
-        costTypeModellEl.find('.addConfirm__product-cost_price').text(priceModel)
-
-        _that.confrimPopup.show()
     },
     _addBasket: function(prod) {
         var _that = this
@@ -159,7 +116,7 @@ var basket = {
     _removeItem: function(event) {
         var _that = this
 
-        var id = $(event.target).closest('.product, .basket__item').attr('data-id')
+        var id = $(event.target).closest('.product, .basket__item, .priceTable__row').attr('data-id')
 
         var basket = _that._getBasket(),
             basketFinal = [];
@@ -190,7 +147,7 @@ var basket = {
             var prodItem = $('<div class="basket__item" data-id="' + elem.id + '"><div class="basket__item-info"> <button class="basket__item-delete" type="button">Удалить</button></div></div>')
             if (elem.thumb) prodItem.prepend('<div class="basket__item-pic"><img src="' + elem.thumb + '" alt="" /></div>')
             prodItem.find('.basket__item-info').append('<p class="basket__item-name">' + elem.name + '</p>')
-            prodItem.find('.basket__item-info').append('<p class="basket__item-costType">Тип цены: <strong>' + elem.costType + '</strong></p>')
+            if(elem.costType) prodItem.find('.basket__item-info').append('<p class="basket__item-costType">Тип цены: <strong>' + elem.costType + '</strong></p>')
             prodItem.find('.basket__item-info').append('<p class="basket__item-quantity">Колличество: <strong>' + elem.quantity + ' шт.</strong></p>')
             prodItem.find('.basket__item-info').append('<p class="basket__item-price">' + elem.price + ' руб.</p>')
 
