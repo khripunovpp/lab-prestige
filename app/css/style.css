@@ -673,6 +673,7 @@ select:-internal-autofill-selected {
 
 .photoGallery img {
   height: 200px;
+  cursor: pointer;
 }
 
 .contacts {
@@ -2088,6 +2089,7 @@ select:-internal-autofill-selected {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  height: 100%;
 }
 
 .priceTable__cost + .priceTable__cost {
@@ -2709,5 +2711,11 @@ select:-internal-autofill-selected {
   }
   .basket__total strong {
     display: block;
+  }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .priceTable__cost {
+    height: auto;
   }
 }
