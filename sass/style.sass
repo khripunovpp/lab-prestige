@@ -25,6 +25,8 @@ body
 	font-size: 14px
 	background-color: #fff
 	color: #2a2a2a
+	&.fixed
+		overflow: hidden
 
 img
 	max-width: 100%	
@@ -89,6 +91,8 @@ select
 		font-size: 24px
 		text-transform: uppercase
 		margin: 0 0 15px
+		& + *
+			margin-top: 0 !important
 	&__content
 		& > *:first-child
 			margin-top: 0 !important

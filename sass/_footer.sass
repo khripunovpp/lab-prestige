@@ -115,7 +115,8 @@
 	background-color: rgba(0, 0, 0, 0.3)
 
 .callback,
-.registration
+.registration,
+.implants
 	position: fixed
 	top: 0
 	left: 0
@@ -206,7 +207,35 @@
 		&:hover
 			background-color: darken(#5283c5, 15)
 
-
+.implants
+	&__box
+		max-width: 800px
+	&__list
+		margin-top: 15px
+		ul
+			display: flex
+			flex-flow: row wrap
+			margin-right: -4px
+		li
+			width: calc(33.3333% - 4px)
+			margin: 4px 4px 0 0
+			border-radius: 3px
+			background-color: #d3eafa
+			text-align: center
+			padding: 8px 10px
+			font-weight: 500
+			font-size: 16px
+			display: flex
+			flex-direction: column
+			justify-content: center
+			align-items: center
+			& *
+				display: block
+				font-size: 13px
+				font-style: normal
+				font-weight: 400
+				line-height: 1
+				margin: 2px 0 0
 
 
 .pbm

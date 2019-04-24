@@ -85,6 +85,12 @@ var callbackModal = function() {
         open('.registration')
     });
 
+     $('.js-openlist').on('click', function(event) {
+        event.preventDefault();
+
+        open('.implants')
+    });
+
     $('.callback__submit').on('click', function(event) {
         event.preventDefault();
 
@@ -100,6 +106,8 @@ var callbackModal = function() {
     function open(box) {
         overlay = $(box)
         box = overlay.find('.overlay-inner')
+
+        $('body').addClass('fixed')
 
         overlay.fadeIn(300);
         $({ scale: .5 }).animate({
@@ -117,6 +125,8 @@ var callbackModal = function() {
     function close() {
         overlay = $(this).closest('.overlay')
         box = overlay.find('.overlay-inner')
+
+        $('body').removeClass('fixed')
 
         $({ scale: 1 }).animate({
             scale: 0
@@ -174,6 +184,8 @@ $(function() {
             });
         }
     });
+
+     $('.equipment, .portfolio').lightGallery();
 
     isFocus('callback')
     isFocus('registration')

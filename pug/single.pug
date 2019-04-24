@@ -29,9 +29,10 @@ html
 						aside.main__sidebar
 							include _sidebar
 						article.main__content
-							button.js-clear очистить
+							//- button.js-clear очистить
 							include _search
 							h1.main__title ZrO2 для каркасов на имплантах CAD/CAM
+							button.showImplantList.showImplantList--link.js-openlist Перечень фрезеруемых систем имплантов
 							.case
 								.case__list
 									.case__item.product(data-id="6541561")
@@ -118,6 +119,9 @@ html
 									li минимальный уровень травматичности во время установки;
 									li плоское основание под имплант надежно защищает от инфицирования;
 									li теперь распределение жевательной нагрузки происходит равномерно по всему зубному ряду.
+
+							button.showImplantList.showImplantList--link.js-openlist Перечень фрезеруемых систем имплантов
+							
 							.priceTable
 								.priceTable__category Система имплантов
 								.priceTable__body
@@ -158,7 +162,6 @@ html
 										a(href="basket.html").priceTable__added В корзине
 
 
-
 							.priceTable
 								.priceTable__category Система имплантов #[strong (#[span.priceTable__category-priceType с уровня модели])]
 								.priceTable__body
@@ -187,7 +190,8 @@ html
 												button.priceTable__btn Заказать
 										button.priceTable__delete(title="Удалить из корзины")
 										a(href="basket.html").priceTable__added В корзине
-
+							
+			
 
 							include _gallery
 							include _contacts
