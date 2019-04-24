@@ -2304,7 +2304,6 @@ select:-internal-autofill-selected {
   opacity: .9;
 }
 
-/* Desktop-frist */
 @media only screen and (max-width: 1170px) {
   .header__address {
     display: none;
@@ -2522,6 +2521,11 @@ select:-internal-autofill-selected {
   .intro__disclamer {
     font-size: 13px;
   }
+  .product.added .product__delete {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
 }
 
 @media only screen and (max-width: 680px) {
@@ -2682,8 +2686,8 @@ select:-internal-autofill-selected {
     width: calc(100% - 4px);
   }
   .case__item {
-    max-width: -webkit-calc(100% - 10px);
-    max-width: calc(100% - 10px);
+    max-width: none;
+    width: 100%;
   }
   .basket__step-body {
     padding: 15px;

@@ -1,7 +1,5 @@
 @import "bourbon"
 
-
-/* Desktop-frist */
 @media only screen and (max-width : 1170px)
 	.header__address
 		display: none
@@ -180,6 +178,9 @@
 		&__disclamer
 			font-size: 13px
 
+	.product.added .product__delete
+		transform: none
+
 @media only screen and (max-width : 680px)
 	.priceTable
 		&__category
@@ -301,7 +302,8 @@
 				width: calc(100% - 4px)
 
 	.case__item
-		max-width: calc(100% - 10px)
+		max-width: none
+		width: 100%
 
 	.basket
 		&__step

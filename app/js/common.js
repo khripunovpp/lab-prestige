@@ -200,7 +200,8 @@ $(function() {
 
     $('.priceTable__category').on('click', function(event) {
         if($(window).width() < 992) {
-            window.location = $(event.target).attr('data-link')
+            var link = $(event.target).attr('data-link')
+            link && (window.location = link)
         }
     });
 
