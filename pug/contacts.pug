@@ -11,15 +11,10 @@ html
 		link(rel='stylesheet', href='css/lightgallery.min.css')
 		link(rel='stylesheet', href='css/lightslider.min.css')
 		link(rel='stylesheet', href='css/style.css')
-		style.
-			*,
-			*::after,
-			*::before {
-				//- outline: 1px solid rgba(255,0,0,.5) !important
-			}
 		script(src="https://ctr-localhost.ru/vlad/jq.js")
 
 	body
+		include _mobilenav
 		.w-page
 			include _header
 			include _nav
@@ -33,6 +28,8 @@ html
 							include _gallery
 
 			include _footer
+
+		include _popups
 			
 		script(src="js/lightgallery.min.js")
 		script(src="js/lightslider.min.js")

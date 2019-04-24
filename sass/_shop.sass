@@ -156,7 +156,7 @@
 			font-size: 20px
 			font-weight: 500
 			margin: 0
-			padding: 10px 100px 10px 10px
+			padding: 10px
 			position: relative
 			line-height: 1.2
 		&-body
@@ -300,6 +300,7 @@
 		strong
 				color: #222
 				font-size: 28px
+				margin-left: 8px
 	&__group
 		&-label
 			margin: 0 0 5px
@@ -338,13 +339,9 @@
 		&+&
 			margin-top: 20px
 	&.empty
-		.basket__empty,
-		.basket__step--basket .basket__step-body
+		.basket__empty
 			display: block
-		.basket__step--delivery,
-		.basket__step--contacts,
-		.basket__ok,
-		.basket__total
+		.basket__step
 			display: none
 		
 
@@ -399,6 +396,7 @@
 		flex: 1
 		justify-content: center
 		align-items: center
+		flex-direction: column
 		transition: all .2s
 		&+&
 			margin-left: 4px
@@ -411,7 +409,6 @@
 	&__name
 		font-size: 16px
 		font-weight: 500
-		justify-content: flex-start
 		text-align: left
 		width: 50%
 		border-radius: 6px
@@ -420,7 +417,6 @@
 		font-weight: 500
 	&__cost
 		display: flex
-		height: 100%
 		&+&
 			margin-top: 4px
 		&:hover
@@ -491,12 +487,23 @@
 		font-weight: 700
 		font-size: 17px
 		background-color: darken(#5283c5, 18)
+		background-image: linear-gradient(to right, #5283c5, darken(#5283c5, 18))
 		text-align: center
-		padding: 8px 10px
+		padding: 8px 15px
 		border-radius: 6px
+		position: relative
 		strong
 			opacity: .8
 			font-weight: 500
+		&[data-link]
+			&::after
+				display: none
+				content: '\e905'
+				@extend %icon
+				position: absolute
+				top: 7px
+				font-size: 25px
+				right: 7px
 
 
 .response
@@ -548,30 +555,16 @@
 
 .showImplantList
 	display: block
-	margin: 30px auto 60px
-	border: none
-	background-color: #fff
-	color: #777
+	margin: 0 0 30px
+	color: #5ea6fa
 	font-weight: 500
 	font-size: 15px
-	text-align: center
-	width: 100%
-	padding: 10px 15px	
-	border: 1px solid #bbb
-	border-radius: 6px
+	text-decoration: underline
+	padding: 0
+	background-color: transparent
+	border: none
 	cursor: pointer
+	text-align: left
 	&:hover
-		background-color: #5283c5
-		color: #fff
-		border-color: #5283c5
-	&--link
-		padding: 0
-		text-align: left
-		border: none
-		margin: 0 0 30px
-		color: #5ea6fa
-		text-decoration: underline
-		&:hover
-			text-decoration: none
-			color: #222
-			background-color: transparent
+		color: #222
+		text-decoration: none

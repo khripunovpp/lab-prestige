@@ -192,4 +192,16 @@ $(function() {
 
     callbackModal()
 
+    $('.header__burger').on('click', function(event) {
+        event.preventDefault();
+        $(this).toggleClass('opened');
+        $('body').toggleClass('menu-opened');
+    });
+
+    $('.priceTable__category').on('click', function(event) {
+        if($(window).width() < 992) {
+            window.location = $(event.target).attr('data-link')
+        }
+    });
+
 });

@@ -11,15 +11,10 @@ html
 		link(rel='stylesheet', href='css/lightgallery.min.css')
 		link(rel='stylesheet', href='css/lightslider.min.css')
 		link(rel='stylesheet', href='css/style.css')
-		style.
-			*,
-			*::after,
-			*::before {
-				//- outline: 1px solid rgba(255,0,0,.5) !important
-			}
 		script(src="https://ctr-localhost.ru/vlad/jq.js")
 
 	body
+		include _mobilenav
 		.w-page
 			include _header
 			include _nav
@@ -32,7 +27,7 @@ html
 							//- button.js-clear очистить
 							include _search
 							h1.main__title ZrO2 для каркасов на имплантах CAD/CAM
-							button.showImplantList.showImplantList--link.js-openlist Перечень фрезеруемых систем имплантов
+							button.showImplantList.js-openlist Перечень фрезеруемых систем имплантов
 							.case
 								.case__list
 									.case__item.product(data-id="6541561")
@@ -120,12 +115,12 @@ html
 									li плоское основание под имплант надежно защищает от инфицирования;
 									li теперь распределение жевательной нагрузки происходит равномерно по всему зубному ряду.
 
-							button.showImplantList.showImplantList--link.js-openlist Перечень фрезеруемых систем имплантов
+							button.showImplantList.js-openlist Перечень фрезеруемых систем имплантов
 							
 							.priceTable
 								.priceTable__category Система имплантов
 								.priceTable__body
-									.priceTable__row(data-id="nzf")
+									.priceTable__row(data-id="radfbvf")
 										.priceTable__name Zimmer, Mis, AlphaBio, Adin, BioGorizont, Conmet
 										.priceTable__order
 											.priceTable__cost
@@ -165,7 +160,7 @@ html
 							.priceTable
 								.priceTable__category Система имплантов #[strong (#[span.priceTable__category-priceType с уровня модели])]
 								.priceTable__body
-									.priceTable__row(data-id="nzf")
+									.priceTable__row(data-id="fbdfb")
 										.priceTable__name Zimmer, Mis, AlphaBio, Adin, BioGorizont, Conmet
 										.priceTable__order
 											.priceTable__cost
@@ -173,7 +168,7 @@ html
 												button.priceTable__btn Заказать
 										button.priceTable__delete(title="Удалить из корзины")
 										a(href="basket.html").priceTable__added В корзине
-									.priceTable__row(data-id="hzdfbz")
+									.priceTable__row(data-id="dfbadf")
 										.priceTable__name Индивидуальный абатмент ZrO2 Prettau на титановом основании
 										.priceTable__order
 											.priceTable__cost
@@ -182,7 +177,7 @@ html
 												button.priceTable__btn Заказать
 										button.priceTable__delete(title="Удалить из корзины")
 										a(href="basket.html").priceTable__added В корзине
-									.priceTable__row(data-id="hzdfbz")
+									.priceTable__row(data-id="WE")
 										.priceTable__name Индивидуальный абатмент ZrO2 Prettau на титановом основании
 										.priceTable__order
 											.priceTable__cost
@@ -197,6 +192,8 @@ html
 							include _contacts
 
 			include _footer
+
+		include _popups
 			
 		script(src="js/lightgallery.min.js")
 		script(src="js/lightslider.min.js")

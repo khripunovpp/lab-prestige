@@ -11,15 +11,10 @@ html
 		link(rel='stylesheet', href='css/lightgallery.min.css')
 		link(rel='stylesheet', href='css/lightslider.min.css')
 		link(rel='stylesheet', href='css/style.css')
-		style.
-			*,
-			*::after,
-			*::before {
-				//- outline: 1px solid rgba(255,0,0,.5) !important
-			}
 		script(src="https://ctr-localhost.ru/vlad/jq.js")
 
 	body
+		include _mobilenav
 		.w-page
 			include _header
 			include _nav
@@ -31,8 +26,9 @@ html
 						article.main__content
 							include _search
 							h1.main__title Прайс-лист
+							button.showImplantList.js-openlist Перечень фрезеруемых систем имплантов
 							.priceTable
-								.priceTable__category ZrO2 для каркасов CAD/CAM
+								.priceTable__category(data-link="single.html", title="Перейти на страницу с товарами") ZrO2 для каркасов CAD/CAM
 								.priceTable__body
 									.priceTable__row(data-id="nzf")
 										.priceTable__name Zimmer, Mis, AlphaBio, Adin, BioGorizont, Conmet
@@ -70,7 +66,7 @@ html
 										button.priceTable__delete(title="Удалить из корзины")
 										a(href="basket.html").priceTable__added В корзине
 							.priceTable
-								.priceTable__category Высокотранслюценный ZrO2 (Prettau) CAD/CAM Высокотранслюценный ZrO2 (Prettau) CAD/CAM
+								.priceTable__category(data-link="single.html", title="Перейти на страницу с товарами") Высокотранслюценный ZrO2 (Prettau) CAD/CAM Высокотранслюценный ZrO2 (Prettau) CAD/CAM
 								.priceTable__body
 									.priceTable__row(data-id="nzf")
 										.priceTable__name Zimmer, Mis, AlphaBio, Adin, BioGorizont, Conmet
@@ -112,6 +108,8 @@ html
 							include _contacts
 
 			include _footer
+
+		include _popups
 			
 		script(src="js/lightgallery.min.js")
 		script(src="js/lightslider.min.js")

@@ -16,6 +16,7 @@
 		max-width: 250px
 		position: relative
 		top: -25px
+		font-size: 0
 	&__disclamer
 		margin: 80px 0 0
 		font-size: 15px
@@ -115,8 +116,7 @@
 	background-color: rgba(0, 0, 0, 0.3)
 
 .callback,
-.registration,
-.implants
+.registration
 	position: fixed
 	top: 0
 	left: 0
@@ -144,12 +144,14 @@
 	&__close
 		position: absolute
 		top: 8px
-		right: 5px
+		right: 8px
 		border: none
 		background: transparent
 		cursor: pointer
 		outline: none
 		opacity: .5
+		padding: 0
+		line-height: 1
 		&:before
 			@extend %icon
 			content: '\e90e'
@@ -194,6 +196,7 @@
 		border-radius: 3px
 		padding: 10px 15px
 		font-size: 16px
+		display: block
 	&__submit
 		display: table
 		margin: 0 auto
@@ -208,8 +211,56 @@
 			background-color: darken(#5283c5, 15)
 
 .implants
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 8
+	overflow: auto
+	display: none
+	text-align: left
+	&__wrapper
+		height: 100%
+		width: 100%
+	&__inner
+		vertical-align: middle
+		padding: 15px
 	&__box
+		background-color: #fafafa
+		width: 100%
 		max-width: 800px
+		position: relative
+		overflow: hidden
+		margin: 0 auto
+		padding: 15px 20px 20px 
+		border-radius: 3px
+	&__close
+		position: absolute
+		top: 8px
+		right: 8px
+		border: none
+		background: transparent
+		cursor: pointer
+		outline: none
+		opacity: .5
+		padding: 0
+		line-height: 1
+		&:before
+			@extend %icon
+			content: '\e90e'
+			width: 15px
+			height: 15px
+			top: 6px
+			left: 0
+		&:hover
+			opacity: 1
+	&__title
+		text-transform: uppercase
+		font-size: 25px
+		margin: 0
+		color: #3a5ca4
+		font-weight: 500
 	&__list
 		margin-top: 15px
 		ul
@@ -239,19 +290,23 @@
 
 
 .pbm
+	$color: #0cb531
 	position: fixed
+	z-index: 3
 	bottom: 50px
 	right: 50px
-	background-color: #34c153
+	background-color: $color
 	width: 70px
 	height: 70px
 	border-radius: 50%
 	border: none
-	box-shadow: 0 0 5px 15px rgba(#34c153, .2)
+	padding: 0
+	box-shadow: 0 0 5px 15px rgba($color, .2)
 	cursor: pointer
 	color: #fff
 	font-size: 35px
 	animation: call 1.8s infinite ease-in-out
+	transition: all .2s
 	&::after
 		content: ''
 		position: absolute
@@ -259,7 +314,7 @@
 		left: 0
 		width: 70px
 		height: 70px
-		border: 1px solid #34c153
+		border: 1px solid $color
 		border-radius: 50%
 		animation: pulse 1s linear .4s infinite
 	&::before

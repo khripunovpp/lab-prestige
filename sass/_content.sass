@@ -83,13 +83,14 @@
 		top: -7px
 	&__title
 		font-size: 24px
-		margin: 0
+		margin: 0 0 15px
 		color: #000
 	&__disclamer
 		font-size: 15px
 		color: #a0a0a0
 		border-left: 2px solid #ddd
 		padding-left: 15px
+		margin: 0
 
 .photoGallery
 	font-size: 0
@@ -105,8 +106,8 @@
 		width: 100%
 		font-size: 0
 	&__photo
-		background-image: url(img/map.jpg)
 		background-size: cover
+		background-position: 50% 50%
 		display: table-cell
 		vertical-align: top
 	&__map
@@ -120,7 +121,7 @@
 		font-size: 24px
 		font-weight: 700
 		text-transform: uppercase
-		margin: 10px 0 20px
+		margin: 0 0 20px
 	&__left
 		width: 60%
 		float: left
@@ -163,7 +164,6 @@
 	justify-content: space-between
 	margin-bottom: calc(30px - 1%)
 	margin-right: -1%
-
 	div
 		display: block
 		width: 49%
@@ -175,6 +175,7 @@
 		cursor: pointer
 		img
 			position: absolute
-			top: 15px
-			left: 15px
+			top: 50%
+			left: 50%
 			width: calc(100% - 30px)
+			transform: translate3d(-50%,-50%,0)
