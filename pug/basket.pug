@@ -32,10 +32,10 @@ html
 										.basket__group
 											p.basket__group-label Тип плательщика
 											.basket__group-radio.checked
-												input(type="radio", name="role", value="1", checked, required)
+												input(type="radio", name="role", value="Физическое лицо", checked, required)
 												| Физическое лицо
 											.basket__group-radio
-												input(type="radio", name="role", value="2", required)
+												input(type="radio", name="role", value="Юридическое лицо", required)
 												| Юридическое лицо
 										.basket__group
 											p.basket__group-label #[strong *] Местопложение
@@ -48,7 +48,7 @@ html
 									.basket__step-body
 										.basket__group
 											p.basket__group-label #[strong *] ФИО
-											input(type="text", name="fio", required).basket__group-field
+											input(type="text", name="name", required).basket__group-field
 										.basket__group
 											p.basket__group-label #[strong *] E-mail
 											input(type="email", name="mail", required).basket__group-field
@@ -64,7 +64,7 @@ html
 									.basket__step-body
 										.basket__list
 										p.basket__total Всего на сумму: #[strong #[span.js-basketTotal 0 ] руб.]
-										button.basket__ok(type="button") Оформить заказ
+										button.basket__ok.js-submit-basket(type="button") Оформить заказ
 
 			include _footer
 

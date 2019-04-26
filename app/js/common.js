@@ -85,7 +85,7 @@ var callbackModal = function() {
         open('.registration')
     });
 
-     $('.js-openlist').on('click', function(event) {
+    $('.js-openlist').on('click', function(event) {
         event.preventDefault();
 
         open('.implants')
@@ -185,7 +185,7 @@ $(function() {
         }
     });
 
-     $('.equipment, .portfolio').lightGallery();
+    $('.equipment, .portfolio').lightGallery();
 
     isFocus('callback')
     isFocus('registration')
@@ -199,10 +199,9 @@ $(function() {
     });
 
     $('.priceTable__category').on('click', function(event) {
-        if($(window).width() < 992) {
+        if ($(window).width() < 992) {
             var link = $(event.target).attr('data-link')
             link && (window.location = link)
         }
     });
-
 });

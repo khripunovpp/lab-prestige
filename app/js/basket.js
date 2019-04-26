@@ -1,10 +1,12 @@
-var ajax = function(form, attach) {
+var ajax = function(form, attach, sum) {
 
     var formtarget = form,
-        msg = { userData: $(formtarget).serializeArray(), basket: attach },
+        msg = { userdata: $(formtarget).serialize(), basket: attach, sum: sum },
         jqxhr = $.post("/ajax.php", msg, onAjaxSuccess);
 
     function onAjaxSuccess(data) {
+         
+         console.log(data)
 
         var json = JSON.parse(data),
             status = json.status,
@@ -16,6 +18,8 @@ var ajax = function(form, attach) {
                 $(this).prop("disabled", "true");
             });
         }
+
+
 
         addNotify(status, message, formid)
     }
@@ -189,7 +193,7 @@ var basket = {
             nextStep($(event.target).closest('.basket__step'))
         });
 
-        $('.basket__ok').on('click', submit)
+        $('.js-submit-basket').on('click', submit)
 
         function setError(el) {
             if (!el.hasClass('invalid')) el.addClass('invalid').append('<p class="basket__group-error">Это обязательное поле</p>'), errors++
@@ -208,15 +212,7 @@ var basket = {
         function submit() {
             var basket = _that._getBasket()
 
-            if (basket.length > 0) {
-                ajax(_that.basket, basket)
-
-                ////
-
-                $('.response--success').fadeIn(100);
-            } else {
-                _that.basket.addClass('error')
-            }
+            if (basket.length > 0) ajax(_that.basket, basket, $('.js-basketTotal').text())
         }
 
         function setLocation() {
