@@ -31,52 +31,58 @@ html
 							.case
 								.case__list
 									.case__item.product(data-id="6541561")
-										a(href="basket.html", title="Просмотреть корзину").product__check В корзине
-										button.product__delete(title="Удалить из корзины")
 										img.product__pic(src="img/pic-1.jpg", alt="")
 										p.product__name Каркас Ti любой протяжённости
-										p.product__cost
+										p.product__cost(data-cost-type="по stl файлу")
 											span.product__cost-type По STL файлу
-											strong.product__cost-price 600 руб.
+											strong.product__cost-price 600
 											button.product__cost-btn Заказать
-										p.product__cost
+											a(href="basket.html", title="Просмотреть корзину").product__check
+											button.product__delete(title="Удалить из корзины")
+										p.product__cost(data-cost-type="с уровня модели")
 											span.product__cost-type С уровня модели
-											strong.product__cost-price 9000 руб.
+											strong.product__cost-price 9000
 											button.product__cost-btn Заказать
+											a(href="basket.html", title="Просмотреть корзину").product__check
+											button.product__delete(title="Удалить из корзины")
 									.case__item.product(data-id="3516561")
-										a(href="basket.html", title="Просмотреть корзину").product__check В корзине
-										button.product__delete(title="Удалить из корзины")
 										img.product__pic(src="img/pic-2.jpg", alt="")
 										p.product__name Каркас Ti анатомической формы протяженностью до 6 единиц
-										p.product__cost
+										p.product__cost(data-cost-type="по stl файлу")
 											span.product__cost-type По STL файлу
-											strong.product__cost-price 600 руб.
+											strong.product__cost-price 600
 											button.product__cost-btn Заказать
-										p.product__cost
+											a(href="basket.html", title="Просмотреть корзину").product__check
+											button.product__delete(title="Удалить из корзины")
+										p.product__cost(data-cost-type="с уровня модели")
 											span.product__cost-type С уровня модели
-											strong.product__cost-price 900 руб.
+											strong.product__cost-price 900
 											button.product__cost-btn Заказать
+											a(href="basket.html", title="Просмотреть корзину").product__check
+											button.product__delete(title="Удалить из корзины")
 									.case__item.product(data-id="46589")
-										a(href="basket.html", title="Просмотреть корзину").product__check В корзине
-										button.product__delete(title="Удалить из корзины")
 										img.product__pic(src="img/pic-3.jpg", alt="")
 										p.product__name Каркас мостовидного протеза, протяженностью до 6 ед.
-										p.product__cost
+										p.product__cost(data-cost-type="по stl файлу")
 											span.product__cost-type По STL файлу
-											strong.product__cost-price 600 руб.
+											strong.product__cost-price 600
 											button.product__cost-btn Заказать
-										p.product__cost
+											a(href="basket.html", title="Просмотреть корзину").product__check
+											button.product__delete(title="Удалить из корзины")
+										p.product__cost(data-cost-type="с уровня модели")
 											span.product__cost-type С уровня модели
-											strong.product__cost-price 900 руб.
+											strong.product__cost-price 900
 											button.product__cost-btn Заказать
+											a(href="basket.html", title="Просмотреть корзину").product__check
+											button.product__delete(title="Удалить из корзины")
 									.case__item.product(data-id="98163210")
-										a(href="basket.html", title="Просмотреть корзину").product__check В корзине
-										button.product__delete(title="Удалить из корзины")
 										img.product__pic(src="img/pic-3.jpg", alt="")
 										p.product__name Каркас мостовидного протеза, протяженностью до 6 ед.
 										p.product__cost
-											strong.product__cost-price 600 руб.
+											strong.product__cost-price 600
 											button.product__cost-btn Заказать
+											a(href="basket.html", title="Просмотреть корзину").product__check
+											button.product__delete(title="Удалить из корзины")
 							br
 							br
 							br
@@ -123,68 +129,72 @@ html
 									.priceTable__row(data-id="radfbvf")
 										.priceTable__name Zimmer, Mis, AlphaBio, Adin, BioGorizont, Conmet
 										.priceTable__order
-											.priceTable__cost
-												.priceTable__priceType По STL файлу
-												.priceTable__price 1500 руб.
+											.priceTable__cost(data-cost-type="по stl файлу")
+												.priceTable__pricetype По STL файлу
+												.priceTable__price 1500
 												button.priceTable__btn Заказать
-											.priceTable__cost
-												.priceTable__priceType С уровня модели
-												.priceTable__price 43534 руб.
+												a(href="basket.html").priceTable__added В корзине
+												button.priceTable__delete(title="Удалить из корзины")
+											.priceTable__cost(data-cost-type="с уровня модели")
+												.priceTable__pricetype С уровня модели
+												.priceTable__price 43534
 												button.priceTable__btn Заказать
-										button.priceTable__delete(title="Удалить из корзины")
-										a(href="basket.html").priceTable__added В корзине
+												a(href="basket.html").priceTable__added В корзине
+												button.priceTable__delete(title="Удалить из корзины")
 									.priceTable__row(data-id="nzf")
 										.priceTable__name Zimmer, Mis, AlphaBio, Adin, BioGorizont, Conmet
 										.priceTable__order
-											.priceTable__cost
-												.priceTable__priceType С уровня модели
-												.priceTable__price 43534 руб.
+											.priceTable__cost(data-cost-type="с уровня модели")
+												.priceTable__pricetype С уровня модели
+												.priceTable__price 43534
 												button.priceTable__btn Заказать
-										button.priceTable__delete(title="Удалить из корзины")
-										a(href="basket.html").priceTable__added В корзине
+												a(href="basket.html").priceTable__added В корзине
+												button.priceTable__delete(title="Удалить из корзины")
 									.priceTable__row(data-id="hzdfbz")
 										.priceTable__name Индивидуальный абатмент ZrO2 Prettau на титановом основании
 										.priceTable__order
-											.priceTable__cost
-												.priceTable__priceType По STL файлу
-												.priceTable__price 1500 руб.
+											.priceTable__cost(data-cost-type="по stl файлу")
+												.priceTable__pricetype По STL файлу
+												.priceTable__price 1500
 												button.priceTable__btn Заказать
-											.priceTable__cost
-												.priceTable__priceType С уровня модели
-												.priceTable__price 345 руб.
+												a(href="basket.html").priceTable__added В корзине
+												button.priceTable__delete(title="Удалить из корзины")
+											.priceTable__cost(data-cost-type="с уровня модели")
+												.priceTable__pricetype С уровня модели
+												.priceTable__price 345
 												button.priceTable__btn Заказать
-										button.priceTable__delete(title="Удалить из корзины")
-										a(href="basket.html").priceTable__added В корзине
+												a(href="basket.html").priceTable__added В корзине
+												button.priceTable__delete(title="Удалить из корзины")
 
 
 							.priceTable
-								.priceTable__category Система имплантов #[strong (#[span.priceTable__category-priceType с уровня модели])]
+								.priceTable__category(data-cost-type="с уровня модели") Система имплантов #[strong (#[span.priceTable__category-pricetype С уровня модели])]
 								.priceTable__body
 									.priceTable__row(data-id="fbdfb")
 										.priceTable__name Zimmer, Mis, AlphaBio, Adin, BioGorizont, Conmet
 										.priceTable__order
 											.priceTable__cost
-												.priceTable__price 1500 руб.
+												.priceTable__price 1500
 												button.priceTable__btn Заказать
-										button.priceTable__delete(title="Удалить из корзины")
-										a(href="basket.html").priceTable__added В корзине
+												a(href="basket.html").priceTable__added В корзине
+												button.priceTable__delete(title="Удалить из корзины")
 									.priceTable__row(data-id="dfbadf")
 										.priceTable__name Индивидуальный абатмент ZrO2 Prettau на титановом основании
 										.priceTable__order
-											.priceTable__cost
-												.priceTable__priceType По STL файлу
-												.priceTable__price 1500 руб.
+											.priceTable__cost(data-cost-type="по stl файлу")
+												.priceTable__pricetype По STL файлу
+												.priceTable__price 1500
 												button.priceTable__btn Заказать
-										button.priceTable__delete(title="Удалить из корзины")
-										a(href="basket.html").priceTable__added В корзине
+												a(href="basket.html").priceTable__added В корзине
+												button.priceTable__delete(title="Удалить из корзины")
 									.priceTable__row(data-id="WE")
 										.priceTable__name Индивидуальный абатмент ZrO2 Prettau на титановом основании
 										.priceTable__order
 											.priceTable__cost
-												.priceTable__price 1500 руб.
+												.priceTable__price 1500
 												button.priceTable__btn Заказать
-										button.priceTable__delete(title="Удалить из корзины")
-										a(href="basket.html").priceTable__added В корзине
+												a(href="basket.html").priceTable__added В корзине
+												button.priceTable__delete(title="Удалить из корзины")
 							
 			
 

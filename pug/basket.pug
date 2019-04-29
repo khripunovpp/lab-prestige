@@ -9,7 +9,8 @@ html
 		link(rel='shortcut icon', href='img/favicon.ico', type='image/x-icon')
 		link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900")
 		link(rel='stylesheet', href='css/style.css')
-		script(src="https://ctr-localhost.ru/vlad/jq.js")
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+		script(src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU", type="text/javascript")
 
 	body
 		include _mobilenav
@@ -22,7 +23,7 @@ html
 						aside.main__sidebar
 							include _sidebar
 						article.main__content
-							form(action="", method="post").basket
+							form(action="", method="post").basket.empty
 
 								p.basket__empty Корзина пуста
 								.basket__step.basket__step--delivery
@@ -63,7 +64,7 @@ html
 									p.basket__step-title Товары в заказе
 									.basket__step-body
 										.basket__list
-										p.basket__total Всего на сумму: #[strong #[span.js-basketTotal 0 ] руб.]
+										p.basket__total Всего на сумму: #[strong #[span.js-basketTotal 0 ] #[i.currency]]
 										button.basket__ok.js-submit-basket(type="button") Оформить заказ
 
 			include _footer

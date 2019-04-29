@@ -189,21 +189,6 @@
 			display: block
 			&+&
 				margin-top: 10px
-			&.added
-				.priceTable
-					&__order
-						display: none
-					&__delete
-						visibility: visible
-						opacity: 1
-						transform: none
-						left: 0
-						top: auto
-						bottom: 0
-						height: auto
-						width: 50px
-						&::before
-							line-height: 30px
 		&__name
 			width: auto
 			transition: none
@@ -213,9 +198,14 @@
 			margin-top: 4px
 			display: block
 		&__btn
-			width: 100px
-			font-size: 14px
-		&__priceType,
+			width: 58px
+			font-size: 0
+			padding: 0
+			&::before
+				display: inline-block
+				font-size: 22px
+				line-height: 1
+		&__pricetype,
 		&__price,
 		&__btn,
 		&__added
@@ -224,12 +214,36 @@
 			transition: none
 		&__price
 			font-size: 15px
-		&__added
-			margin-left: 50px
-			width: calc(100% - 50px)
-			margin-top: 4px
 		&__delete
 			transition: none
+		&__cost
+			&.added
+				.priceTable
+					&__added
+						width: 30px
+						height: 30px
+						padding: 0
+						font-size: 0
+						border-radius: 50% !important
+						align-self: center
+						margin: 0 6px
+						&::before
+							display: inline-block
+							font-size: 15px
+							line-height: 25px
+					&__delete
+						position: relative
+						visibility: visible
+						opacity: 1
+						transform: none
+						left: auto
+						top: auto
+						bottom: 0
+						height: auto
+						width: 20px
+						&::before
+							line-height: 30px
+							font-size: 18px
 
 	.case__item
 		max-width: calc(50% - 10px)
@@ -322,6 +336,12 @@
 			&-pic
 				width: auto
 				margin: 0
+			&-price
+				padding-right: 0
+				font-size: 20px
+				text-align: center
+			&-delete
+				bottom: -18px
 		&__total
 			margin-left: -30px
 			transform: translateX(15px)

@@ -5,8 +5,6 @@ var ajax = function(form, attach, sum) {
         jqxhr = $.post("/ajax.php", msg, onAjaxSuccess);
 
     function onAjaxSuccess(data) {
-         
-         console.log(data)
 
         var json = JSON.parse(data),
             status = json.status,
@@ -18,8 +16,6 @@ var ajax = function(form, attach, sum) {
                 $(this).prop("disabled", "true");
             });
         }
-
-
 
         addNotify(status, message, formid)
     }
@@ -34,6 +30,8 @@ var ajax = function(form, attach, sum) {
         setTimeout(function() {
             responsePopup.fadeOut();
         }, 2000)
+
+        status === 'success' && basket._clearBasket()
     }
 }
 
@@ -57,6 +55,10 @@ var basket = {
             _that._removeItem.call(_that, e)
         });
 
+        $('body').on('click', '.basket__item-quantity button', function(e) {
+            _that._quantity.call(_that, e)
+        });
+
         $('.js-clear').on('click', function(e) {
             _that._clearBasket.call(_that, e)
         });
@@ -69,25 +71,23 @@ var basket = {
         var target = $(event.target),
             product, cost, price, name, costType, quantity, thumb;
 
-
         product = $(event.target).closest('.product, .priceTable__row')
 
         id = product.attr('data-id')
         cost = $(event.target).closest('.product__cost, .priceTable__cost')
         price = cost.find('.product__cost-price, .priceTable__price').text()
         name = product.find('.product__name, .priceTable__name').text()
-        costType = cost.find('.product__cost-type, .priceTable__priceType').text() || product.closest('.priceTable').find('.priceTable__category-priceType').text()
-        price = price.substring(0, price.length - 5)
+        costType = cost.find('.product__cost-type, .priceTable__pricetype').text() || product.closest('.priceTable').find('.priceTable__category-pricetype').text()
         thumb = product.find('.product__pic').attr('src')
         quantity = 1
 
-        product.addClass('added')
+        cost.addClass('added')
 
         var item = {
             id: id,
             quantity: quantity,
             name: name,
-            costType: costType || null,
+            costType: costType.toLowerCase() || null,
             price: price,
             thumb: thumb || null
         }
@@ -100,69 +100,134 @@ var basket = {
 
         var basket = _that._getBasket()
 
-        var id = prod.id
+        var id = prod.id,
+            costType = prod.costType;
+
+        basket.map(function(el) {
+            if (el.id === id && el.costType === costType) {
+                el.quantity++
+            }
+        })
 
         basket.push(prod)
 
-        $.cookie('basket', JSON.stringify(basket));
+        localStorage.setItem('basket', JSON.stringify(basket));
 
         _that._update()
     },
     _getBasket: function() {
-        return JSON.parse($.cookie('basket')) || []
+        return JSON.parse(localStorage.getItem('basket')) || []
     },
     _clearBasket: function() {
         var _that = this
-        $.cookie('basket', null);
+        localStorage.setItem('basket', null);
 
         _that._update()
     },
     _removeItem: function(event) {
         var _that = this
 
-        var id = $(event.target).closest('.product, .basket__item, .priceTable__row').attr('data-id')
+        var id = $(event.target).closest('.product, .basket__item, .priceTable__row').attr('data-id'),
+            costType = $(event.target).closest('.product__cost, .basket__item, .priceTable__cost').attr('data-cost-type') || $(event.target).closest('.priceTable').find('.priceTable__category').attr('data-cost-type') || null;
 
         var basket = _that._getBasket(),
             basketFinal = [];
 
         basket.map(function(elem, i) {
-            if (elem.id !== id) basketFinal.push(elem)
+            if (String(elem.id) !== id || String(elem.costType) !== costType) basketFinal.push(elem)
         })
 
         $(event.target).closest('.basket__item').fadeOut()
 
-        $.cookie('basket', JSON.stringify(basketFinal));
+        localStorage.setItem('basket', JSON.stringify(basketFinal));
 
         _that._update()
+    },
+    _quantity: function(event) {
+        var _that = this
+
+        var button = $(event.target),
+            item = button.closest('.basket__item'),
+            countEl = item.find('.js-quantity'),
+            sumEl = item.find('.js-quantity-sum'),
+            costEl = item.find('.js-cost'),
+            totalSum = 0;
+
+        var basket = _that._getBasket()
+
+        var id = item.attr('data-id'),
+            costType = item.attr('data-cost-type') || null;
+
+        if (button.hasClass('js-quantity-less')) {
+            var currentCount = Number(countEl.eq(0).text());
+            currentCount > 1 && setQuantity(+currentCount - 1);
+        } else {
+            var currentCount = Number(countEl.eq(0).text());
+            setQuantity(+currentCount + 1);
+        }
+
+        function setQuantity(q) {
+            countEl.text(q)
+            updateSum(q)
+
+            basket.map(function(el) {
+                if (String(el.id) === id && String(el.costType) === costType)  el.quantity = q
+            })
+        }
+
+        function updateSum(q) {
+            sumEl.text(Number(costEl.text()) * q)
+
+            $('.js-quantity-sum').each(function(i, el) {
+                totalSum += Number($(el).text())
+            })
+
+            $('.js-basketTotal').text(totalSum)
+        }
+
+        localStorage.setItem('basket', JSON.stringify(basket));
     },
     _update: function() {
         var _that = this
 
         var totalPrice = 0
 
-        $('.product, .priceTable__row').removeClass('added')
+        $('.product__cost, .priceTable__cost').removeClass('added')
         $('.basket__list').html('')
 
         var basket = _that._getBasket()
 
         basket.map(function(elem) {
-            $('[data-id="' + elem.id + '"]').addClass('added')
+            if (elem.costType) {
+                $('[data-id="' + elem.id + '"]').find('.product__cost[data-cost-type="' + elem.costType + '"], .priceTable__cost[data-cost-type="' + elem.costType + '"]').addClass('added')
+                $('.priceTable').find('.priceTable__category[data-cost-type="' + elem.costType + '"]').closest('.priceTable').find('[data-id="' + elem.id + '"]').find('.priceTable__cost').addClass('added')
+            } else {
+                $('[data-id="' + elem.id + '"]').find('.product__cost, .priceTable__cost').addClass('added')
+            }
 
-            var prodItem = $('<div class="basket__item" data-id="' + elem.id + '"><div class="basket__item-info"> <button class="basket__item-delete" type="button">Удалить</button></div></div>')
-            if (elem.thumb) prodItem.prepend('<div class="basket__item-pic"><img src="' + elem.thumb + '" alt="" /></div>')
-            prodItem.find('.basket__item-info').append('<p class="basket__item-name">' + elem.name + '</p>')
-            if(elem.costType) prodItem.find('.basket__item-info').append('<p class="basket__item-costType">Тип цены: <strong>' + elem.costType + '</strong></p>')
-            prodItem.find('.basket__item-info').append('<p class="basket__item-quantity">Колличество: <strong>' + elem.quantity + ' шт.</strong></p>')
-            prodItem.find('.basket__item-info').append('<p class="basket__item-price">' + elem.price + ' руб.</p>')
-
-            totalPrice += Number(elem.price)
-
-            $('.basket__list').append(prodItem)
+            renderBasketItem(elem)
         })
 
         basket.length <= 0 ? _that.basket.addClass('empty') : _that.basket.removeClass('empty')
 
         $('.js-basketTotal').text(totalPrice)
+
+        function renderBasketItem(elem) {
+            var prodItem = $('<div class="basket__item" data-id="' + elem.id + '" data-cost-type="' + elem.costType + '"><div class="basket__item-info"> <button class="basket__item-delete" type="button">Удалить</button></div></div>')
+            
+            if (elem.thumb) prodItem.prepend('<div class="basket__item-pic"><img src="' + elem.thumb + '" alt="" /></div>')
+           
+            prodItem.find('.basket__item-info').append('<p class="basket__item-name">' + elem.name + '</p>')
+           
+            if (elem.costType) prodItem.find('.basket__item-info').append('<p class="basket__item-costType">Тип цены: <strong>' + elem.costType + '</strong></p>')
+           
+            prodItem.find('.basket__item-info').append('<p class="basket__item-quantity">Колличество: <button class="basket__item-less js-quantity-less" type="button"></button><strong><span class="js-quantity">' + elem.quantity + '</span> шт.</strong><button class="js-quantity-more basket__item-more" type="button"></button></p>')
+            prodItem.find('.basket__item-info').append('<p class="basket__item-price"><span class="js-quantity">' + elem.quantity + '</span> шт. x <span class="js-cost">' + elem.price + '</span> <i class="currency"></i> = <span class="js-quantity-sum">' + elem.quantity * elem.price + '</span> <i class="currency"></i></p>')
+
+            totalPrice += Number(elem.quantity * elem.price)
+
+            $('.basket__list').append(prodItem)
+        }
     },
     _steps: function() {
         var _that = this
@@ -171,7 +236,7 @@ var basket = {
 
         var activeStep, errors = 0
 
-        $('[name="location"]').length > 0 && setLocation()
+        setLocation()
 
         $(inputs).on('blur', function() {
             removeError($(event.target))
@@ -180,6 +245,12 @@ var basket = {
         $('[type="radio"]').on('click', function() {
             $(this).closest('.basket__group-radio').addClass('checked').siblings().removeClass('checked')
         });
+
+        $('.basket__edit').on('click', function(event) {
+            event.preventDefault()
+
+            prevStep($(event.target).closest('.basket__step'))
+        })
 
         $('.basket__next').on('click', function(event) {
             event.preventDefault();
@@ -196,7 +267,11 @@ var basket = {
         $('.js-submit-basket').on('click', submit)
 
         function setError(el) {
-            if (!el.hasClass('invalid')) el.addClass('invalid').append('<p class="basket__group-error">Это обязательное поле</p>'), errors++
+            if (!el.hasClass('invalid')) {
+                if (el.find('.basket__group-error').length === 0) el.append('<p class="basket__group-error">Это обязательное поле</p>')
+                el.addClass('invalid')
+                errors++
+            }
         }
 
         function removeError(el) {
@@ -206,25 +281,31 @@ var basket = {
         function nextStep(prev) {
             activeStep = $(prev)
 
-            if (errors <= 0) activeStep.addClass('disabled done').next().removeClass('disabled'), errors = 0
+            if (errors <= 0) activeStep.addClass('disabled done').next().removeClass('disabled done'), errors = 0, activeStep = activeStep.next()
+        }
+
+        function prevStep(target) {
+
+            activeStep.addClass('disabled done')
+            target.removeClass('disabled done')
+
+            activeStep = target
+
+            errors = 0
+            inputs.closest('.basket__group').removeClass('invalid')
         }
 
         function submit() {
             var basket = _that._getBasket()
 
-            if (basket.length > 0) ajax(_that.basket, basket, $('.js-basketTotal').text())
+            basket.length > 0 && ajax(_that.basket, basket, $('.js-basketTotal').text())
         }
 
         function setLocation() {
-            if ("geolocation" in navigator) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    $.ajax({
-                        url: 'https://geocode-maps.yandex.ru/1.x/?geocode=' + position.coords.longitude + ',' + position.coords.latitude,
-                        success: function(data) {
-                            $('[name="location"]').val($(data).find('featureMember').eq(0).find('description').text())
-                        }
-                    });
-                });
+            if ($('[name="location"]').length) {
+                ymaps.ready(function() {
+                    $('[name="location"]').val(ymaps.geolocation.city)
+                })
             }
         }
     }

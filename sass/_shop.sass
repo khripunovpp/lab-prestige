@@ -53,94 +53,77 @@
 			color: #fff
 			text-transform: uppercase
 			border-radius: 3px
-			padding: 2px 8px
+			padding: 4px 8px
 			display: inline-block
 			vertical-align: middle
+			&::after
+				content: '\e913'
+				@extend %icon
+				font-size: .8em
+				margin-left: 5px
 		&-btn
 			color: #3a5ca4
 			background-color: transparent
 			border: 1px solid
 			border-radius: 3px
 			font-size: 13px
-			padding: 4px 8px
+			padding: 6px 8px
 			display: inline-block
-			vertical-align: middle
+			vertical-align: bottom
 			cursor: pointer
 			font-weight: 500
 			&:hover
 				background-color: #528fcd
 				color: #fff
 				border-color: #528fcd
+		&.added
+			user-select: none
+			box-shadow: none
+			.product__cost-btn
+				display: none
+			.product__check,
+			.product__delete
+				display: inline-block
 	&__check
-		visibility: hidden
-		position: absolute
-		z-index: 2
-		top: 50%
-		left: 50%
+		display: none
 		background-color: #34c153
-		padding: 8px 15px
-		white-space: nowrap
 		border-radius: 50px
-		transform: translate(-50%, -100%)
-		opacity: 0
-		transition: all .2s
 		cursor: pointer
 		text-decoration: none
 		color: #fff
 		font-weight: 500
+		width: 30px
+		height: 30px
+		text-align: center
+		vertical-align: bottom
+		margin-left: 5px
 		&::before
-			content: '\e900'
+			content: '\e904'
 			@extend %icon
-			font-size: 25px
-			position: relative
-			display: inline-block
-			vertical-align: middle
-			top: -2px
-			margin-right: 10px
+			font-size: 16px
+			line-height: 30px
 		&:hover
 			background-color: darken(#34c153,15)
 	&__delete
-		position: absolute
-		z-index: 3
-		top: 10px
-		right: 10px
 		background-color: transparent
-		width: 35px
-		height: 35px
+		width: 25px
+		height: 25px
 		border-radius: 50%
-		transform: translateX(200%)
-		transition: all .2s
 		cursor: pointer
 		text-decoration: none
 		border: none
 		color: #ff4343
+		vertical-align: middle
+		display: none
+		padding: 0
 		&::before
 			content: '\e901'
 			@extend %icon
-			font-size: 20px
-			line-height: 35px
+			font-size: 18px
+			line-height: 25px
 		&:hover
 			color: darken(#ff4343, 25)
-	&.added
-		user-select: none
-		box-shadow: none
-		&::before
-			content: ''
-			position: absolute
-			z-index: 1
-			top: 0
-			left: 0
-			width: 100%
-			height: 100%
-			background-color: #fff
-			opacity: .5
-		.product__check
-			visibility: visible
-			opacity: 1
-			transform: translate(-50%, -50%)
-		&:hover
-			.product__delete
-				transform: translateX(0)
+	
 
 
 .basket
@@ -174,6 +157,8 @@
 					padding: 10px 25px
 				&__next
 					display: none
+				&__edit
+					display: block
 				&__group
 					margin: 0
 					&-field
@@ -183,6 +168,7 @@
 						background-color: transparent
 						user-select: none
 						pointer-events: none
+						font-size: 14px
 					&-label
 						margin: 0 5px 0 0
 						font-weight: 600
@@ -203,10 +189,8 @@
 			&.disabled
 				.basket__step-body
 					display: block
-				.basket__item-delete,
 				.basket__ok
 					display: none
-
 	&__edit
 		position: absolute
 		top: 10px
@@ -267,14 +251,14 @@
 		&-quantity
 			font-size: 14px
 			color: #727273
-			margin: 5px 0 0
+			margin: 10px 0 0
 			strong
 				color: #222
 				text-transform: lowercase
 		&-price
 			font-size: 24px
 			font-weight: 700
-			margin: auto 0 0
+			margin: 20px 0 0
 			color: #222
 			padding-right: 30px
 		&-delete
@@ -292,6 +276,31 @@
 			padding: 0
 			&:hover
 				text-decoration: underline
+		&-less,
+		&-more
+			display: inline-block
+			vertical-align: middle
+			width: 22px
+			height: 22px
+			margin: 0 8px
+			border: none
+			border-radius: 50%
+			color: #fff
+			padding: 0
+			text-align: center
+			cursor: pointer
+			&::before
+				@extend %icon
+				font-size: 15px
+				line-height: 22px
+			&:hover
+				background-color: #999
+		&-less
+			&::before
+				content: '\e910'
+		&-more
+			&::before
+				content: '\e911'
 	&__total
 		color: #727273
 		font-size: 16px
@@ -363,27 +372,10 @@
 		&:hover
 			.priceTable__name
 				background-color: darken(#d3eafa, 5)
-		&.added
-			.priceTable
-				&__added
-					display: flex
-				&__btn
-					display: none
-				&__name,
-				&__price,
-				&__priceType
-					background-color: #d3eafa !important
-				&__order
-					width: calc(50% - 134px)
-			&:hover
-				.priceTable__delete
-					visibility: visible
-					opacity: 1
-					transform: translateX(0)
 		&+&
 			margin-top: 4px
 	&__name,
-	&__priceType,
+	&__pricetype,
 	&__price
 		display: table-cell
 		vertical-align: top
@@ -400,6 +392,13 @@
 		transition: all .2s
 		&+&
 			margin-left: 4px
+	&__price
+		flex-direction: row
+		&::after
+			content: '\e913'
+			@extend %icon
+			font-size: .8em
+			margin-left: 4px
 	&__order
 		display: flex
 		flex-direction: column
@@ -412,22 +411,36 @@
 		text-align: left
 		width: 50%
 		border-radius: 6px
-	&__priceType
+	&__pricetype
 		font-size: 12px
 		font-weight: 500
 	&__cost
 		display: flex
 		height: 100%
+		position: relative
 		&+&
 			margin-top: 4px
 		&:hover
-			.priceTable__priceType,
+			.priceTable__pricetype,
 			.priceTable__price
 				background-color: darken(#d3eafa, 5)
 		& *:first-child
 			border-radius: 6px 0 0 6px
-		& *:last-child
-			border-radius: 0 6px 6px 0
+		&.added
+			.priceTable
+				&__added
+					display: flex
+				&__btn
+					display: none
+				&__name,
+				&__price,
+				&__pricetype
+					background-color: #d3eafa !important
+			&:hover
+				.priceTable__delete
+					visibility: visible
+					opacity: 1
+					transform: translateX(0)
 	&__btn
 		width: 130px
 		border: none
@@ -440,8 +453,13 @@
 		background-color: #5283c5
 		cursor: pointer
 		transition: all .2s
+		border-radius: 0 6px 6px 0
 		&:hover
 			background-color: darken(#5283c5, 20)
+		&::before
+			content: '\e912'
+			@extend %icon
+			display: none
 	&__added
 		width: 130px
 		border: none
@@ -456,8 +474,13 @@
 		align-items: center
 		display: none
 		text-decoration: none
+		border-radius: 0 6px 6px 0
 		&:hover
 			text-decoration: underline
+		&::before
+			content: '\e904'
+			@extend %icon
+			display: none
 	&__delete
 		position: absolute
 		visibility: hidden
@@ -569,3 +592,9 @@
 	&:hover
 		color: #222
 		text-decoration: none
+
+.currency
+	&::before
+		content: '\e913'
+		@extend %icon
+		font-size: .8em
