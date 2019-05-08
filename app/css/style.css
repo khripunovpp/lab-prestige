@@ -6,7 +6,7 @@
   font-style: normal;
 }
 
-.header__burger::before, .lk__item::before, .nav__item--hasSubMenu::before, .search::before, .footer__payments-icons i::before, .callback__close:before,
+.header__burger::before, .lk__item::before, .nav__item--hasSubMenu::before, .search::before, .callback__close:before,
 .registration__close:before, .implants__close:before, .pbm::before, .product__cost-price::after, .product__check::before, .product__delete::before, .basket__item-less::before, .basket__item-more::before, .priceTable__price::after, .priceTable__btn::before, .priceTable__added::before, .priceTable__delete::before, .priceTable__category[data-link]::after, .currency::before {
   font-family: 'icomoon' !important;
   speak: none;
@@ -890,61 +890,6 @@ select:-internal-autofill-selected {
 }
 
 .footer__additional ul a:hover {
-  text-decoration: underline;
-}
-
-.footer__payments {
-  margin-top: 50px;
-}
-
-.footer__payments-caption {
-  margin: 0 0 5px;
-  font-weight: 600;
-  color: #303030;
-}
-
-.footer__payments-text {
-  margin: 0;
-}
-
-.footer__payments-icons {
-  margin: 25px 0 10px;
-}
-
-.footer__payments-icons i {
-  display: inline-block;
-  font-size: 40px;
-  line-height: 1;
-}
-
-.footer__payments-icons i:nth-child(1)::before {
-  content: '\e90b';
-}
-
-.footer__payments-icons i:nth-child(2)::before {
-  content: '\e90a';
-}
-
-.footer__payments-icons i:nth-child(3)::before {
-  content: '\e909';
-}
-
-.footer__payments-icons i:nth-child(4)::before {
-  content: '\e908';
-}
-
-.footer__payments-icons i + i {
-  margin-left: 5px;
-}
-
-.footer__payments-credit {
-  color: #3a5ca4;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
-}
-
-.footer__payments-credit:hover {
   text-decoration: underline;
 }
 
@@ -2384,21 +2329,19 @@ select:-internal-autofill-selected {
   .footer__logo {
     top: auto;
   }
-  .footer__menu, .footer__contacts {
-    display: none;
+  .footer__contacts {
+    text-align: center;
   }
   .footer__additional {
     max-width: none;
+    margin: 15px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
   }
   .footer__disclamer {
     margin-top: 20px;
     font-size: 12px;
-  }
-  .footer__payments {
-    margin-top: 20px;
-  }
-  .footer__payments-icons {
-    margin-top: 20px;
   }
   .pbm {
     width: 40px;
