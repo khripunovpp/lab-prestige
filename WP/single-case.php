@@ -26,7 +26,11 @@ get_header();
                                 <?php $item = get_sub_field('item'); ?>
                                 <?php $id = $item->ID ?>
                                 <div class="case__item product" data-id="<?php the_field('id', $id); ?>">
-                                    <img class="product__pic" src="<?php echo get_the_post_thumbnail_url($id); ?>" alt="">
+                                    <?php if(get_the_post_thumbnail_url($id)) : ?>
+                                        <img class="product__pic" src="<?php echo get_the_post_thumbnail_url($id); ?>" alt="">
+                                    <?php else : ?>
+                                        <img class="product__pic" src="<?php echo get_theme_file_uri() ?>/img/no-pic.jpg" alt="">
+                                    <?php endif; ?>
                                     <p class="product__name"><?php echo get_the_title($item); ?></p>
                                     <?php if( have_rows('prices', $id) ): ?>
                                         <?php while( have_rows('prices', $id) ): the_row(); ?>

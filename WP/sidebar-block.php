@@ -1,4 +1,5 @@
 <aside class="main__sidebar">
+    <?php wp_nav_menu( array('menu' => 'Правовая информация', 'container' => false, 'menu_class' => '')); ?>
     <ul class="menu">
         <li class="menu__item">ДИОКСИД ЦИРКОНИЯ ZrO2
             <ul class="subMenu" style="display:block">
