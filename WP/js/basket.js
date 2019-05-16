@@ -2,7 +2,7 @@ var ajax = function(form, attach, sum) {
 
     var formtarget = form,
         msg = { userdata: $(formtarget).serialize(), basket: attach, sum: sum },
-        jqxhr = $.post("/ajax.php", msg, onAjaxSuccess);
+        jqxhr = $.post("/wp-content/themes/lab/ajax.php", msg, onAjaxSuccess);
 
     function onAjaxSuccess(data) {
 
@@ -77,7 +77,7 @@ var basket = {
         cost = $(event.target).closest('.product__cost, .priceTable__cost')
         price = cost.find('.product__cost-price, .priceTable__price').text()
         name = product.find('.product__name, .priceTable__name').text()
-        costType = cost.find('.product__cost-type, .priceTable__pricetype').text() || product.closest('.priceTable').find('.priceTable__category-pricetype').text() || product.closest('.case').attr('data-cost-type')
+        costType = cost.find('.product__cost-type, .priceTable__pricetype').text() || product.closest('.priceTable').find('.priceTable__category').attr('data-cost-type') || product.closest('.case').attr('data-cost-type') || ''
         thumb = product.find('.product__pic').attr('src')
         quantity = 1
 
@@ -87,9 +87,9 @@ var basket = {
             id: id,
             quantity: quantity,
             name: name,
-            costType: costType.toLowerCase() || null,
+            costType: costType.toLowerCase() || '',
             price: price,
-            thumb: thumb || null
+            thumb: thumb || ''
         }
 
         _that._addBasket(item)
@@ -128,12 +128,10 @@ var basket = {
         var _that = this
 
         var id = $(event.target).closest('.product, .basket__item, .priceTable__row').attr('data-id'),
-            costType = $(event.target).closest('.product__cost, .basket__item, .priceTable__cost').attr('data-cost-type') || $(event.target).closest('.priceTable').find('.priceTable__category').attr('data-cost-type') || null;
+            costType = $(event.target).closest('.product__cost, .basket__item, .priceTable__cost').attr('data-cost-type') || $(event.target).closest('.priceTable').find('.priceTable__category').attr('data-cost-type') || '';
 
         var basket = _that._getBasket(),
             basketFinal = [];
-
-            console.log(basket)
 
         basket.map(function(elem, i) {
             if (String(elem.id) !== id || String(elem.costType) !== costType) basketFinal.push(elem)
@@ -158,7 +156,7 @@ var basket = {
         var basket = _that._getBasket()
 
         var id = item.attr('data-id'),
-            costType = item.attr('data-cost-type') || null;
+            costType = item.attr('data-cost-type') || '';
 
         if (button.hasClass('js-quantity-less')) {
             var currentCount = Number(countEl.eq(0).text());

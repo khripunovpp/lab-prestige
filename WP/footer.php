@@ -11,11 +11,7 @@ $list = get_field('list', 'option');
             <div class="container">
                 <div class="footer__inner"><a class="footer__logo" href=""><img src="<?php echo $logo ?>" alt=""></a>
                     <div class="footer__menu">
-                        <ul>
-                            <li><a href="">О лаборатории</a></li>
-                            <li><a href="">Наши работы</a></li>
-                            <li><a href="">Услуги и цены</a></li>
-                        </ul>
+                        <?php wp_nav_menu( array('menu' => 'Футер', 'container' => false, 'menu_class' => '')); ?>
                     </div>
                     <div class="footer__additional">
                         <p class="footer__additional-caption">ПРАВОВАЯ ИНФОРМАЦИЯ</p>
@@ -38,26 +34,7 @@ $list = get_field('list', 'option');
             <tbody>
                 <tr>
                     <td class="callback__inner">
-                        <form class="callback__box overlay-inner">
-                            <button class="callback__close overlay-close" type="button"></button>
-                            <p class="callback__title">Обратный звонок</p>
-                            <p class="callback__text">Перезвоним в удобное для Вас время</p>
-                            <div class="callback__tail">
-                                <div class="callback__group">
-                                    <label class="callback__label">Ваше имя <strong>*</strong></label>
-                                    <input class="callback__field" type="text">
-                                </div>
-                                <div class="callback__group">
-                                    <label class="callback__label">Контактный телефон <strong>*</strong></label>
-                                    <input class="callback__field" type="tel">
-                                </div>
-                                <div class="callback__group">
-                                    <label class="callback__label">Сообщение</label>
-                                    <textarea class="callback__field" rows="2"></textarea>
-                                </div>
-                            </div>
-                            <button class="callback__submit">Отправить запрос</button>
-                        </form>
+                        <?php echo do_shortcode('[contact-form-7 id="873" title="Обратный звонок" html_class="callback__box overlay-inner"]') ?>
                     </td>
                 </tr>
             </tbody>
@@ -68,25 +45,7 @@ $list = get_field('list', 'option');
             <tbody>
                 <tr>
                     <td class="registration__inner">
-                        <form class="registration__box overlay-inner">
-                            <button class="registration__close overlay-close" type="button"></button>
-                            <p class="registration__title">Регистрация</p>
-                            <div class="registration__tail">
-                                <div class="registration__group">
-                                    <label class="registration__label">Ваше имя <strong>*</strong></label>
-                                    <input class="registration__field" type="text">
-                                </div>
-                                <div class="registration__group">
-                                    <label class="registration__label">Контактный телефон <strong>*</strong></label>
-                                    <input class="registration__field" type="tel">
-                                </div>
-                                <div class="registration__group">
-                                    <label class="registration__label">E-mail <strong>*</strong></label>
-                                    <input class="registration__field" type="email">
-                                </div>
-                            </div>
-                            <button class="registration__submit">Отправить запрос</button>
-                        </form>
+                        <?php echo do_shortcode('[contact-form-7 id="872" title="Регистрация" html_class="registration__box overlay-inner"]') ?>
                     </td>
                 </tr>
             </tbody>

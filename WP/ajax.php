@@ -12,11 +12,11 @@ $phone = htmlspecialchars($userdata['phone']);
 
 if (!empty($phone)) {
 
-	$to = 'khripunovpp@gmail.com';
-	$subject = 'LAB';
+	$to = 'khripunovpp@gmail.com, khripunovpp@mail.ru';
+	$subject = 'Labprestige ЗАЯВКА';
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; utf-8' . "\r\n";
-	$headers .= 'From: LAB <clinic@valident.ru>' . "\r\n";
+	$headers .= 'From: Labprestige  <no-reply@labprestige.com>' . "\r\n";
 	$message = '
 	<table border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0; width:100%;-webkit-text-size-adjust:none;">
 				<tr>
@@ -24,7 +24,7 @@ if (!empty($phone)) {
 								<center style="max-width: 600px; width: 100%; margin: 0 auto;">
 										<table border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0;font-family: Arial, Helvetica, sans-serif; width:100%;">
 												<tr>
-														<td align="center" style="padding:15px 0"><img src="http://ovz1.prestigedent.1y8yz.vps.myjino.ru/img/logo.jpg" alt="" border="0"></td>
+														<td align="center" style="padding:15px 0"><img src="http://labprestige.com/wp-content/uploads/2019/05/logo.png" alt="" border="0"></td>
 												</tr>
 												<tr>
 														<td align="center" bgcolor="#3a5ca4" style="padding:15px 0;color:#ffffff;font-size: 18px;font-weight:800"><span>Новый заказ</span></td>

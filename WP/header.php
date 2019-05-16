@@ -17,6 +17,7 @@ $phone = get_field('phone', 'option');
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="shortcut icon" href="<?php echo get_theme_file_uri() ?>/img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700,900">
+	<meta name="theme-color" content="#3a5ca4">
 	<?php wp_head(); ?>
 </head>
 

@@ -91,12 +91,6 @@ var callbackModal = function() {
         open('.implants')
     });
 
-    $('.callback__submit').on('click', function(event) {
-        event.preventDefault();
-
-        success.call(this)
-    });
-
     $('.overlay-close').on('click', function(event) {
         event.preventDefault();
 
@@ -162,12 +156,6 @@ var callbackModal = function() {
 }
 
 $(function() {
-    servicesMenu()
-    search()
-
-    $('.main__sidebar .menu__item').on('click', 'span', function() {
-        $(this).closest('.menu__item').find('ul').slideToggle()
-    });
 
     $('.photoGallery').lightSlider({
         gallery: true,
@@ -185,6 +173,13 @@ $(function() {
         }
     });
 
+    servicesMenu()
+    search()
+
+    $('.main__sidebar .menu__item').on('click', 'span', function() {
+        $(this).closest('.menu__item').find('ul').slideToggle()
+    });
+
     $('.equipment, .portfolio').lightGallery();
 
     isFocus('callback')
@@ -198,10 +193,30 @@ $(function() {
         $('body').toggleClass('menu-opened');
     });
 
+    $('.main__sidebar-toggle').on('click', function(event) {
+        event.preventDefault();
+        $('.main__sidebar .menu').slideToggle();
+    });
+
     $('.priceTable__category').on('click', function(event) {
         if ($(window).width() < 992) {
             var link = $(event.target).attr('data-link')
             link && (window.location = link)
         }
     });
+
+    r()
+
+    $(window).on('resize', function() {
+        r()
+    });
+    $(window).on('scroll', function() {
+        r()
+    });
+
+    function r() {
+        if ($(window).width() > 991) {
+            $('.main__sidebar .menu').removeAttr('style')
+        } else {}
+    }
 });

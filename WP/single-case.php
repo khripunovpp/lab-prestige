@@ -21,19 +21,24 @@ get_header();
                     <button class="showImplantList js-openlist">Перечень фрезеруемых систем имплантов</button>
                     <div class="case" <?php if (get_field('productstype')) echo "data-cost-type='".mb_strtolower(get_field('productstype'), 'UTF-8')."'"?> >
                         <div class="case__list">
-                        <?php if( have_rows('products') ): ?>
-                            <?php while( have_rows('products') ): the_row(); ?>
-                                <?php $item = get_sub_field('item'); ?>
-                                <?php $id = $item->ID ?>
-                                <div class="case__item product" data-id="<?php the_field('id', $id); ?>">
-                                    <?php if(get_the_post_thumbnail_url($id)) : ?>
-                                        <img class="product__pic" src="<?php echo get_the_post_thumbnail_url($id); ?>" alt="">
+                            <?php $posts = get_field('products1'); ?>
+                            <?php foreach( $posts as $post):  ?>
+                                <?php setup_postdata($post); ?>
+                                <div class="case__item product" data-id="<?php the_field('id'); ?>">
+                                    <?php if(get_the_post_thumbnail_url()) : ?>
+                                        <img class="product__pic" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
                                     <?php else : ?>
                                         <img class="product__pic" src="<?php echo get_theme_file_uri() ?>/img/no-pic.jpg" alt="">
                                     <?php endif; ?>
-                                    <p class="product__name"><?php echo get_the_title($item); ?></p>
-                                    <?php if( have_rows('prices', $id) ): ?>
-                                        <?php while( have_rows('prices', $id) ): the_row(); ?>
+                                    <p class="product__name">
+                                    <?php if(get_field('name')) : ?>
+                                        <?php the_field('name'); ?>
+                                    <?php else: ?>
+                                        <?php the_title(); ?>
+                                    <?php endif; ?> 
+                                    </p>
+                                    <?php if( have_rows('prices') ): ?>
+                                        <?php while( have_rows('prices') ): the_row(); ?>
                                             <p class="product__cost" 
                                             <?php if(get_sub_field('type')) echo "data-cost-type='".mb_strtolower(get_sub_field('type'), 'UTF-8')."'"?>
                                             >
@@ -47,10 +52,10 @@ get_header();
                                         <?php endwhile; ?>
                                     <?php endif; ?>
                                 </div>
-                            <?php endwhile; ?>
-                        <?php endif; ?>
+                            <?php endforeach; ?>
+                            <?php wp_reset_postdata();?>
+                        </div>
                     </div>
-                </div>
                 <?php endwhile; ?>
                 <?php get_template_part( 'photogallery-block' ); ?>
                 <?php get_template_part( 'contacts-block' ); ?>

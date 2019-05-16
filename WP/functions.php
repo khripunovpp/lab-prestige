@@ -30,6 +30,34 @@ function get_the_user_ip()
     return apply_filters('wpb_get_ip', $ip);
 }
 
+class sideMenuWalker extends Walker_Nav_Menu {
+  function start_el(&$output, $item, $depth, $args) {
+    // назначаем классы li-элементу и выводим его
+    $class_names = join( ' ', $item->classes );
+    $class_names = ' menu__item ' .esc_attr( $class_names ). '"';
+    $output.= '<li id="menu-item-' . $item->ID . '" class="' .$class_names. '"">';
+
+    // назначаем атрибуты a-элементу
+    $attributes.= !empty( $item->url ) ? ' href="' .esc_attr($item->url). '"' : '';
+    $item_output = $args->before;
+
+    // проверяем, на какой странице мы находимся
+    $current_url = (is_ssl()?'https://':'http://').$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    $item_url = esc_attr( $item->url );
+    if (empty($item_url)) {
+        $item_output.= '<span'. $attributes .'>'.$item->title.'</span>';
+    } else {
+        if ( $item_url != $current_url ) $item_output.= '<a'. $attributes .'>'.$item->title.'</a>';
+        else $item_output.= '<span>'.$item->title.'</span>';
+    }
+    
+
+    // заканчиваем вывод элемента
+    $item_output.= $args->after;
+    $output.= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+  }
+}
+
 //this creates the shortcode you can use in posts, pages and widgets
 add_shortcode('show_user_ip', 'get_the_user_ip');
 

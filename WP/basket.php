@@ -10,7 +10,7 @@ get_header();
         <div class="main__inner">
             <?php get_template_part( 'sidebar-block' ); ?>
             <article class="main__content">
-                <form class="basket empty" action="" method="post">
+                <form class="basket empty" action="/wp-content/themes/lab/mail.php" id="basket-form" method="post">
                     <p class="basket__empty">Корзина пуста</p>
                     <div class="basket__step basket__step--delivery">
                         <p class="basket__step-title">Регион доставки

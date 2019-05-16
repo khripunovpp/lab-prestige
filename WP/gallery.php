@@ -25,7 +25,6 @@ get_header();
                         <?php endwhile; ?>
                     <?php endif; ?>
                 </div>
-                <?php get_template_part( 'photogallery-block' ); ?>
                 <?php get_template_part( 'contacts-block' ); ?>
             </article>
         </div>
