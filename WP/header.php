@@ -18,6 +18,7 @@ $phone = get_field('phone', 'option');
 	<link rel="shortcut icon" href="<?php echo get_theme_file_uri() ?>/img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700,900">
 	<meta name="theme-color" content="#3a5ca4">
+	<meta name="yandex-verification" content="db61e0885a6c9178" />
 	<?php wp_head(); ?>
 </head>
 
@@ -25,7 +26,7 @@ $phone = get_field('phone', 'option');
 	<div class="mobileMenu">
 		<div class="mobileMenu__section">
 			<div class="lk"><a class="lk__item lk__item--lk" href="">Личный кабинет</a>
-				<button class="lk__item lk__item--reg">Регистрация</button><a class="lk__item lk__item--basket" href="basket.html">Корзина</a>
+				<button class="lk__item lk__item--reg">Регистрация</button><a class="lk__item lk__item--basket" href="basket.html">Корзина  <strong class="js-basket">0</strong></a>
 			</div>
 		</div>
 		<div class="mobileMenu__section">
@@ -59,7 +60,7 @@ $phone = get_field('phone', 'option');
 						<button class="btn btn--ghost js-callback">Обратный звонок</button>
 					</div>
 					<div class="header__lk lk"><a class="lk__item lk__item--lk" href="">Личный кабинет</a>
-						<button class="lk__item lk__item--reg">Регистрация</button><a class="lk__item lk__item--basket" href="./korzina/">Корзина</a>
+						<button class="lk__item lk__item--reg">Регистрация</button><a class="lk__item lk__item--basket" href="./korzina/">Корзина <strong class="js-basket">0</strong></a>
 					</div>
 					<button class="header__burger">Меню</button>
 				</div>

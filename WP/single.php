@@ -11,6 +11,7 @@ get_header();
         <div class="main__inner">
             <?php get_template_part( 'sidebar-block' ); ?>
             <article class="main__content">
+                <?php get_search_form(); ?>
                 <?php while ( have_posts() ) : the_post(); ?>
                     <div class="intro">
                         <img class="intro__pic" src="<?php the_post_thumbnail_url() ?>" alt="">

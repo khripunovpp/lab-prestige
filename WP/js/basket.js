@@ -190,7 +190,8 @@ var basket = {
     _update: function() {
         var _that = this
 
-        var totalPrice = 0
+        var totalPrice = 0, 
+        totalQuantity = 0
 
         $('.product__cost, .priceTable__cost').removeClass('added')
         $('.basket__list').html('')
@@ -227,8 +228,12 @@ var basket = {
 
             totalPrice += Number(elem.quantity * elem.price)
 
+           totalQuantity += Number(elem.quantity)
+
             $('.basket__list').append(prodItem)
         }
+
+        $('.js-basket').text(totalQuantity)
     },
     _steps: function() {
         var _that = this

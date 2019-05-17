@@ -10,6 +10,7 @@ get_header();
         <div class="main__inner">
             <?php get_template_part( 'sidebar-block' ); ?>
             <article class="main__content">
+                <?php get_search_form(); ?>
                 <h1 class="main__title"><?php the_title() ?></h1>
                 <button class="showImplantList js-openlist">Перечень фрезеруемых систем имплантов</button>
                 <?php 

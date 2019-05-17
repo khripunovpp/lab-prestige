@@ -12,7 +12,7 @@ $phone = htmlspecialchars($userdata['phone']);
 
 if (!empty($phone)) {
 
-	$to = 'khripunovpp@gmail.com, khripunovpp@mail.ru';
+	$to = 'khripunovpp@gmail.com, khripunovpp@mail.ru, valident@rambler.ru';
 	$subject = 'Labprestige ЗАЯВКА';
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; utf-8' . "\r\n";

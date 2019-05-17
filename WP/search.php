@@ -1,9 +1,4 @@
 <?php
-/*
-Template Name: Категория товаров (в виде витрины)
-Template Post Type: post
-*/
-
 get_header();
 ?>
 <section class="main">
@@ -11,20 +6,15 @@ get_header();
         <div class="main__inner">
             <?php get_template_part( 'sidebar-block' ); ?>
             <article class="main__content">
-                <?php get_search_form(); ?>
-                <?php while ( have_posts() ) : the_post(); ?>
-                    <h1 class="main__title"><?php the_title(); ?></h1>
-                    <?php if(get_the_content()) : ?>
-                        <div class="content">
-                            <?php the_content(); ?>
-                        </div>
-                    <?php endif; ?>
+                 <?php get_search_form(); ?>
+                <h1 class="main__title">Поиск: <?php the_search_query(); ?></h1>
                     <button class="showImplantList js-openlist">Перечень фрезеруемых систем имплантов</button>
                     <div class="case" <?php if (get_field('productstype')) echo "data-cost-type='".mb_strtolower(get_field('productstype'), 'UTF-8')."'"?> >
                         <div class="case__list">
-                            <?php $posts = get_field('products1'); ?>
-                            <?php foreach( $posts as $post):  ?>
-                                <?php setup_postdata($post); ?>
+                            <?php
+                            if (have_posts()) :
+                                while (have_posts()) : the_post();
+                            ?>
                                 <div class="case__item product" data-id="<?php the_field('id'); ?>">
                                     <?php if(get_the_post_thumbnail_url()) : ?>
                                         <img class="product__pic" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
@@ -53,11 +43,14 @@ get_header();
                                         <?php endwhile; ?>
                                     <?php endif; ?>
                                 </div>
-                            <?php endforeach; ?>
-                            <?php wp_reset_postdata();?>
+                            <?php endwhile; ?>
+                            <?php
+                            else :
+                            echo " <p class='case__empty'>Извините по Вашему результату ничего не найдено</p>";
+                            endif;
+                            ?>
                         </div>
                     </div>
-                <?php endwhile; ?>
                 <?php get_template_part( 'photogallery-block' ); ?>
                 <?php get_template_part( 'contacts-block' ); ?>
             </article>

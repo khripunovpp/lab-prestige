@@ -6,6 +6,7 @@ get_header();
         <div class="main__inner">
             <?php get_template_part( 'sidebar-block' ); ?>
             <article class="main__content">
+                <?php get_search_form(); ?>
                 <h1 class="main__title"><?php the_title(); ?></h1>
                 <div class="content">
                 <?php while ( have_posts() ) : the_post(); ?>
