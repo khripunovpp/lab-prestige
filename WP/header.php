@@ -5,6 +5,8 @@ $address = get_field('address', 'option');
 $hours = get_field('hours', 'option');
 $phone = get_field('phone', 'option');
 
+$scripts = get_field('scriptshead', 'option');
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,6 +21,7 @@ $phone = get_field('phone', 'option');
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700,900">
 	<meta name="theme-color" content="#3a5ca4">
 	<meta name="yandex-verification" content="db61e0885a6c9178" />
+	<?php echo $scripts ?>
 	<?php wp_head(); ?>
 </head>
 
@@ -26,7 +29,7 @@ $phone = get_field('phone', 'option');
 	<div class="mobileMenu">
 		<div class="mobileMenu__section">
 			<div class="lk"><a class="lk__item lk__item--lk" href="">Личный кабинет</a>
-				<button class="lk__item lk__item--reg">Регистрация</button><a class="lk__item lk__item--basket" href="basket.html">Корзина  <strong class="js-basket">0</strong></a>
+				<button class="lk__item lk__item--reg">Регистрация</button><a class="lk__item lk__item--basket" href="/korzina/">Корзина  <strong class="js-basket">0</strong></a>
 			</div>
 		</div>
 		<div class="mobileMenu__section">

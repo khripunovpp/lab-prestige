@@ -36,7 +36,7 @@ get_header();
                         <?php $posts = get_field('products1'); ?>
                         <?php foreach( $posts as $post):  ?>
                             <?php setup_postdata($post); ?>
-                            <div class="priceTable__row" data-id="<?php the_field('id'); ?>">
+                            <div class="priceTable__row" data-id="<?php the_ID(); ?>">
                                 <div class="priceTable__name">
                                 <?php if(get_field('name')) : ?>
                                     <?php the_field('name'); ?>

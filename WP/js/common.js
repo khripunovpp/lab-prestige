@@ -155,7 +155,41 @@ var callbackModal = function() {
     }
 }
 
+var fuzzySearch = function(s) {
+    var options = {
+        shouldSort: true,
+        threshold: 0.4,
+        location: 0,
+        distance: 100,
+        maxPatternLength: 32,
+        minMatchCharLength: 1,
+        keys: [
+            "post_title",
+            "post_content"
+        ]
+    };
+    var fuse = new Fuse(POSTS, options);
+    var result = fuse.search(s);
+}
+
 $(function() {
+
+    $.ajax({
+        url: '/wp-json/acf/v3/post',
+        type: 'default GET (Other values: POST)',
+        dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+        data: {param1: 'value1'},
+    })
+    .done(function() {
+        console.log("success");
+    })
+    .fail(function() {
+        console.log("error");
+    })
+    .always(function() {
+        console.log("complete");
+    });
+    
 
     $('.photoGallery').lightSlider({
         gallery: true,

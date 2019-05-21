@@ -112,130 +112,20 @@
                         </ul>
                     </aside>
                     <article class="main__content">
-                        <div class="search">
-                            <input type="text" placeholder="Введите название или артикул товара">
-                        </div>
+                        <form class="search" role="search" method="get" id="searchform" action="">
+                            <input type="text" class="search__field" name="s" id="s" placeholder="Введите название товара" value="">
+                            <button type="submit" class="search__btn" id="searchsubmit"></button>
+                        </form>
+                        <script>
+                            $('#searchsubmit').on('click', function(event) {
+                                event.preventDefault();
+                                fuzzySearch($('#s').val())
+                            });
+                        </script>
                         <h1 class="main__title">ZrO2 для каркасов на имплантах CAD/CAM</h1>
                         <button class="showImplantList js-openlist">Перечень фрезеруемых систем имплантов</button>
                         <div class="case">
                             <div class="case__list">
-                                <div class="case__item product" data-id="6541561"><img class="product__pic" src="img/pic-1.jpg" alt="">
-                                    <p class="product__name">Каркас Ti любой протяжённости</p>
-                                    <p class="product__cost" data-cost-type="по stl файлу"><span class="product__cost-type">По STL файлу</span><strong class="product__cost-price">600</strong>
-                                        <button class="product__cost-btn">Заказать</button><a class="product__check" href="basket.html" title="Просмотреть корзину"></a>
-                                        <button class="product__delete" title="Удалить из корзины"></button>
-                                    </p>
-                                    <p class="product__cost" data-cost-type="с уровня модели"><span class="product__cost-type">С уровня модели</span><strong class="product__cost-price">9000</strong>
-                                        <button class="product__cost-btn">Заказать</button><a class="product__check" href="basket.html" title="Просмотреть корзину"></a>
-                                        <button class="product__delete" title="Удалить из корзины"></button>
-                                    </p>
-                                </div>
-                                <div class="case__item product" data-id="3516561"><img class="product__pic" src="img/pic-2.jpg" alt="">
-                                    <p class="product__name">Каркас Ti анатомической формы протяженностью до 6 единиц</p>
-                                    <p class="product__cost" data-cost-type="по stl файлу"><span class="product__cost-type">По STL файлу</span><strong class="product__cost-price">600</strong>
-                                        <button class="product__cost-btn">Заказать</button><a class="product__check" href="basket.html" title="Просмотреть корзину"></a>
-                                        <button class="product__delete" title="Удалить из корзины"></button>
-                                    </p>
-                                    <p class="product__cost" data-cost-type="с уровня модели"><span class="product__cost-type">С уровня модели</span><strong class="product__cost-price">900</strong>
-                                        <button class="product__cost-btn">Заказать</button><a class="product__check" href="basket.html" title="Просмотреть корзину"></a>
-                                        <button class="product__delete" title="Удалить из корзины"></button>
-                                    </p>
-                                </div>
-                                <div class="case__item product" data-id="46589"><img class="product__pic" src="img/pic-3.jpg" alt="">
-                                    <p class="product__name">Каркас мостовидного протеза, протяженностью до 6 ед.</p>
-                                    <p class="product__cost" data-cost-type="по stl файлу"><span class="product__cost-type">По STL файлу</span><strong class="product__cost-price">600</strong>
-                                        <button class="product__cost-btn">Заказать</button><a class="product__check" href="basket.html" title="Просмотреть корзину"></a>
-                                        <button class="product__delete" title="Удалить из корзины"></button>
-                                    </p>
-                                    <p class="product__cost" data-cost-type="с уровня модели"><span class="product__cost-type">С уровня модели</span><strong class="product__cost-price">900</strong>
-                                        <button class="product__cost-btn">Заказать</button><a class="product__check" href="basket.html" title="Просмотреть корзину"></a>
-                                        <button class="product__delete" title="Удалить из корзины"></button>
-                                    </p>
-                                </div>
-                                <div class="case__item product" data-id="98163210"><img class="product__pic" src="img/pic-3.jpg" alt="">
-                                    <p class="product__name">Каркас мостовидного протеза, протяженностью до 6 ед.</p>
-                                    <p class="product__cost"><strong class="product__cost-price">600</strong>
-                                        <button class="product__cost-btn">Заказать</button><a class="product__check" href="basket.html" title="Просмотреть корзину"></a>
-                                        <button class="product__delete" title="Удалить из корзины"></button>
-                                    </p>
-                                </div>
-                            </div>
-                        </div><br><br><br><br>
-                        <hr>шаблон второго типа страниц
-                        <hr><br><br><br><br>
-                        <div class="intro"><img class="intro__pic" src="img/pic-1.jpg" alt="">
-                            <div class="intro__info">
-                                <h1 class="intro__title">Индивидуальные Абатменты из Титана (Ti) на имплантах CAD/CAM</h1>
-                                <p class="intro__disclamer">* В стоимость входит имплант+формирователь десны+индивидуальный абатмент+коронка из циркония. <br>Срок службы зубных имплантов более 25 лет. Приживаемость 97%</p>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <p>На сегодняшний день проблема отсутствия одного или нескольких зубов решается современными методами. Большинство людей, испытывающих данную эстетическую проблему, отдают предпочтение такому методу, как имплантация. Передовые технологии позволяют применять коронки и восстанавливать зубной корень с применением титанового штифта небольшого диаметра. Отметим, что потеря зуба может привести к нарушению жевательной функции. Нарушается работа пищеварительной системы, что негативно сказывается на общем состоянии пациента.</p>
-                            <p>Наша стоматологическая клиника работает с имплантами от передовых мировых производителей.</p>
-                            <p>В первую очередь это зубные элементы от шведской компании Astra Tech. Имплант относится к премиум-классу. По уровню продаж он входит в тройку лучших во всем мире.</p>
-                            <p>Основные преимущества:</p>
-                            <ul>
-                                <li>использование чистого металла титана без примесей гарантирует практически 100% приживаемость;</li>
-                                <li>при соблюдении гигиены полости рта срок эксплуатации составляет 30-40 лет;</li>
-                                <li>производитель выдает пожизненную гарантию на свою продукцию.</li>
-                                <li>Работаем мы и с корейским производителем Dentium SuperLine, Osstem Premium. Этот имплант можно считать качественным и бюджетным.</li>
-                            </ul>
-                            <p>Выделим следующие преимущества:</p>
-                            <ul>
-                                <li>минимальный уровень травматичности во время установки;</li>
-                                <li>плоское основание под имплант надежно защищает от инфицирования;</li>
-                                <li>теперь распределение жевательной нагрузки происходит равномерно по всему зубному ряду.</li>
-                            </ul>
-                        </div>
-                        <button class="showImplantList js-openlist">Перечень фрезеруемых систем имплантов</button>
-                        <div class="priceTable">
-                            <div class="priceTable__category">Система имплантов</div>
-                            <div class="priceTable__body">
-                                <div class="priceTable__row" data-id="radfbvf">
-                                    <div class="priceTable__name">Zimmer, Mis, AlphaBio, Adin, BioGorizont, Conmet</div>
-                                    <div class="priceTable__order">
-                                        <div class="priceTable__cost" data-cost-type="по stl файлу">
-                                            <div class="priceTable__pricetype">По STL файлу</div>
-                                            <div class="priceTable__price">1500</div>
-                                            <button class="priceTable__btn">Заказать</button><a class="priceTable__added" href="basket.html">В корзине</a>
-                                            <button class="priceTable__delete" title="Удалить из корзины"></button>
-                                        </div>
-                                        <div class="priceTable__cost" data-cost-type="с уровня модели">
-                                            <div class="priceTable__pricetype">С уровня модели</div>
-                                            <div class="priceTable__price">43534</div>
-                                            <button class="priceTable__btn">Заказать</button><a class="priceTable__added" href="basket.html">В корзине</a>
-                                            <button class="priceTable__delete" title="Удалить из корзины"></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="priceTable__row" data-id="nzf">
-                                    <div class="priceTable__name">Zimmer, Mis, AlphaBio, Adin, BioGorizont, Conmet</div>
-                                    <div class="priceTable__order">
-                                        <div class="priceTable__cost" data-cost-type="с уровня модели">
-                                            <div class="priceTable__pricetype">С уровня модели</div>
-                                            <div class="priceTable__price">43534</div>
-                                            <button class="priceTable__btn">Заказать</button><a class="priceTable__added" href="basket.html">В корзине</a>
-                                            <button class="priceTable__delete" title="Удалить из корзины"></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="priceTable__row" data-id="hzdfbz">
-                                    <div class="priceTable__name">Индивидуальный абатмент ZrO2 Prettau на титановом основании</div>
-                                    <div class="priceTable__order">
-                                        <div class="priceTable__cost" data-cost-type="по stl файлу">
-                                            <div class="priceTable__pricetype">По STL файлу</div>
-                                            <div class="priceTable__price">1500</div>
-                                            <button class="priceTable__btn">Заказать</button><a class="priceTable__added" href="basket.html">В корзине</a>
-                                            <button class="priceTable__delete" title="Удалить из корзины"></button>
-                                        </div>
-                                        <div class="priceTable__cost" data-cost-type="с уровня модели">
-                                            <div class="priceTable__pricetype">С уровня модели</div>
-                                            <div class="priceTable__price">345</div>
-                                            <button class="priceTable__btn">Заказать</button><a class="priceTable__added" href="basket.html">В корзине</a>
-                                            <button class="priceTable__delete" title="Удалить из корзины"></button>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="priceTable">
@@ -454,11 +344,13 @@
         </table>
     </div>
     <button class="pbm js-callback"></button>
+    <script></script>
+    <script src="js/fuse.min.js"></script>
     <script src="js/lightgallery.min.js"></script>
     <script src="js/lightslider.min.js"></script>
+    <script src="js/posts.js"></script>
     <script src="js/common.js"></script>
     <script src="js/basket.js"></script>
-    <script src="js/js.cookie.js"></script>
 </body>
 
 </html>

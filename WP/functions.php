@@ -33,11 +33,13 @@ function get_the_user_ip()
 function onwp_search_results_per_page_func($query) {
  // запрос на странице поиска
  if (!is_admin() && $query->is_main_query() && $query->is_search()) {
- $query->set('posts_per_page', 50);
+ $query->set('posts_per_page', 50000);
  }
 return $query;
  }
 add_action('pre_get_posts', 'onwp_search_results_per_page_func');
+
+
 
 
 class sideMenuWalker extends Walker_Nav_Menu {

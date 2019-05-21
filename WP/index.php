@@ -11,7 +11,8 @@ get_header();
             <?php get_template_part( 'sidebar-block' ); ?>
             <article class="main__content">
                 <div class="hero"><img src="<?php echo get_theme_file_uri() ?>/img/hero.jpg" alt="">
-                    <p class="hero__text">ЦИРКОНОВЫЕ КАРКАСЫ <br>ТИТАНОВЫЕ ОСНОВАНИЯ <br>АБАТМЕНТЫ
+                    <p class="hero__text">
+                        <?php echo get_field('banner', false, false); ?>
                         <button class="hero__btn js-callback">Обратный звонок</button>
                     </p>
                 </div>

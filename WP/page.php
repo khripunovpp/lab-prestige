@@ -15,7 +15,6 @@ get_header();
                 </div>
                 <?php get_template_part( 'photogallery-block' ); ?>
                 <?php get_template_part( 'contacts-block' ); ?>
-                <?php get_template_part( 'contacts-block' ); ?>
             </article>
         </div>
     </div>

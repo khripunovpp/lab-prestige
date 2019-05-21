@@ -15,7 +15,7 @@ get_header();
                             if (have_posts()) :
                                 while (have_posts()) : the_post();
                             ?>
-                                <div class="case__item product" data-id="<?php the_field('id'); ?>">
+                                <div class="case__item product" data-id="<?php the_ID(); ?>">
                                     <?php if(get_the_post_thumbnail_url()) : ?>
                                         <img class="product__pic" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
                                     <?php else : ?>
@@ -25,7 +25,11 @@ get_header();
                                     <?php if(get_field('name')) : ?>
                                         <?php the_field('name'); ?>
                                     <?php else: ?>
-                                        <?php the_title(); ?>
+                                        <?php if(in_category('category')) : ?>
+                                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                        <?php else : ?>
+                                            <?php the_title(); ?>
+                                        <?php endif; ?> 
                                     <?php endif; ?> 
                                     </p>
                                     <?php if( have_rows('prices') ): ?>

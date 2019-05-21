@@ -6,6 +6,9 @@ $hours = get_field('hours', 'option');
 $phone = get_field('phone', 'option');
 $list = get_field('list', 'option');
 
+$scripts = get_field('scriptsbody', 'option');
+
+
 ?>
         <footer class="footer">
             <div class="container">
@@ -101,7 +104,9 @@ $list = get_field('list', 'option');
     <button class="pbm js-callback"></button>
     <script>
        var IP = '<?php echo do_shortcode('[show_user_ip]'); ?>';
+       var POSTS = <?php echo wp_json_encode( get_posts( array( 'numberposts' => 5000000 ) ) ) ?>;
     </script>
+    <?php echo $scripts ?>
     </body>
 
 </html>

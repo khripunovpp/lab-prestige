@@ -1511,6 +1511,10 @@ select:-internal-autofill-selected {
     font-weight: 500;
 }
 
+.product__name a {
+    color: inherit;
+}
+
 .product__cost {
     text-align: left;
     margin: 5px 0 0;

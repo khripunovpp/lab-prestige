@@ -25,7 +25,7 @@ get_header();
                             <?php $posts = get_field('products1'); ?>
                             <?php foreach( $posts as $post):  ?>
                                 <?php setup_postdata($post); ?>
-                                <div class="case__item product" data-id="<?php the_field('id'); ?>">
+                                <div class="case__item product" data-id="<?php the_ID(); ?>">
                                     <?php if(get_the_post_thumbnail_url()) : ?>
                                         <img class="product__pic" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
                                     <?php else : ?>
